@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@builderx/icons": "^0.1.10",
+    "@builderx/utils": "^0.1.6",
+    "@expo/vector-icons": "^10.0.5",
+    "asset": "^0.4.13",
+    "cupertino": "0.0.1",
+    "expo": "^34.0.4",
+    "expo-font": "^6.0.1",
+    "react": "16.8.3",
+    "react-cupertino": "^0.4.3",
+    "react-dom": "^16.8.6",
+    "react-native": "0.59.8",
+    "react-native-elements": "^1.1.0",
+    "react-native-ionicons": "^4.6.1",
+    "react-native-material-design": "^0.3.7",
+    "react-native-material-design-styles": "^0.2.7",
+    "react-native-web": "^0.11.4"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "^6.0.0"
+  },
+  "private": true
+}

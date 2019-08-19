@@ -14,8 +14,8 @@ export default class App extends Component {
         <Icon type={"Ionicons"} name={"ios-menu"} style={styles.icon2} />
         <Center horizontal>
           <Text style={styles.text3}>No Hesitation Math</Text>
-          <Button title="BUTTON" />
         </Center>
+        <Button style={styles.button} title="Start" />
       </View>
     );
   }
@@ -61,11 +61,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     fontSize: 26
   },
-  materialButtonPrimary1: {
-    top: 342.19,
-    left: 117.47,
-    width: 140.09,
-    height: 127.63,
+  button: {
+    top: 330.06,
+    left: 109.58,
+    width: 145.81,
+    height: 75.94,
     position: "absolute"
   }
 });

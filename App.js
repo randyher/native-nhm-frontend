@@ -5,6 +5,18 @@ import { Center } from "@builderx/utils";
 import { Button } from "react-native-elements";
 
 export default class App extends Component {
+  state = {
+    start: false,
+    questions: ["1 + 1 =", "3 + 3 =", "4 + 5 ="]
+  };
+
+  startGame = () => {
+    console.log("Life");
+    this.setState({
+      start: !this.state.start
+    });
+  };
+
   render() {
     return (
       <View style={styles.root}>
@@ -15,7 +27,17 @@ export default class App extends Component {
         <Center horizontal>
           <Text style={styles.text3}>No Hesitation Math</Text>
         </Center>
-        <Button style={styles.button} title="Start" />
+        {this.state.start ? (
+          <Center horizontal>
+            <Text style={styles.text4}>Number Sentence</Text>
+          </Center>
+        ) : (
+          <Button
+            style={styles.button}
+            title="Start, yo"
+            onPress={this.startGame}
+          />
+        )}
       </View>
     );
   }
@@ -59,13 +81,19 @@ const styles = StyleSheet.create({
     top: 100.99,
     color: "#121212",
     position: "absolute",
-    fontSize: 26
+    fontSize: 31
   },
   button: {
-    top: 330.06,
+    top: 370.06,
     left: 109.58,
     width: 145.81,
     height: 75.94,
     position: "absolute"
+  },
+  text4: {
+    top: 375,
+    color: "#121212",
+    position: "absolute",
+    fontSize: 31
   }
 });

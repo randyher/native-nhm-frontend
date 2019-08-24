@@ -3,11 +3,12 @@ import { StyleSheet, View, Text } from "react-native";
 import Icon from "react-native-ionicons";
 import { Center } from "@builderx/utils";
 import { Button } from "react-native-elements";
+import Sheet from "./components/sheet";
 
 export default class App extends Component {
   state = {
     start: false,
-    questions: ["1 + 1 =", "3 + 3 =", "4 + 5 ="]
+    problems: ["1 + 1 =", "3 + 3 =", "4 + 5 ="]
   };
 
   startGame = () => {
@@ -22,22 +23,12 @@ export default class App extends Component {
       <View style={styles.root}>
         <View style={styles.rect} />
         <Text style={styles.text2} />
-        <Icon type={"Ionicons"} name={"ios-home"} style={styles.icon} />
+        <Icon type={"Ionicons"} name={"ios-person"} style={styles.icon} />
         <Icon type={"Ionicons"} name={"ios-menu"} style={styles.icon2} />
         <Center horizontal>
           <Text style={styles.text3}>No Hesitation Math</Text>
         </Center>
-        {this.state.start ? (
-          <Center horizontal>
-            <Text style={styles.text4}>Number Sentence</Text>
-          </Center>
-        ) : (
-          <Button
-            style={styles.button}
-            title="Start, yo"
-            onPress={this.startGame}
-          />
-        )}
+        <Sheet problems={this.state.problems} />
       </View>
     );
   }

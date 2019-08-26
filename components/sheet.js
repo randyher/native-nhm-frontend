@@ -74,7 +74,7 @@ class Sheet extends React.Component {
         <Center>
           {this.state.end ? (
             <Text style={styles.text4}>
-              Questions Correct: {this.state.score}
+              Questions Correct: {this.state.score} / 24
               {"\n"}
               Time Remaining: {this.state.timeRemaining}
             </Text>

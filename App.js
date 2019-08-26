@@ -8,8 +8,16 @@ import Sheet from "./components/sheet";
 export default class App extends Component {
   state = {
     start: false,
-    problems: ["1 + 1 =", "3 + 3 =", "4 + 5 ="]
+    problems: []
   };
+
+  componentDidMount() {
+    fetch(`http://localhost:3000/problems`)
+      .then(res => res.json())
+      .then(problems => {
+        this.setState({ problems: problems });
+      });
+  }
 
   startGame = () => {
     console.log("Life");
@@ -19,6 +27,9 @@ export default class App extends Component {
   };
 
   render() {
+    const numberSentences = this.state.problems.map(problem => {
+      return problem.number_sentence;
+    });
     return (
       <View style={styles.root}>
         <View style={styles.rect} />
@@ -28,7 +39,7 @@ export default class App extends Component {
         <Center horizontal>
           <Text style={styles.text3}>No Hesitation Math</Text>
         </Center>
-        <Sheet problems={this.state.problems} />
+        <Sheet problems={numberSentences} />
       </View>
     );
   }

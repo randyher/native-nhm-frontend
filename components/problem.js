@@ -6,7 +6,7 @@ import Icon from "react-native-ionicons";
 
 class Problem extends React.Component {
   state = {
-    timer: 10,
+    timer: 60,
     questionCount: 0,
     completedQuestions: {},
     currentAnswer: ""
@@ -14,14 +14,6 @@ class Problem extends React.Component {
 
   componentDidMount() {
     this.nameInput.focus();
-    // if (this.state.timer === 0) {
-    //   clearInterval(this.myInterval);
-    // }
-    //
-    // if (this.state.timer === 0) {
-    //   this.props.endGame(this.state.completedQuestions);
-    //   return;
-    // }
 
     this.interval = setInterval(() => {
       if (this.state.timer > 0) {
@@ -40,7 +32,7 @@ class Problem extends React.Component {
   }
 
   nextQuestion = () => {
-    if (this.state.questionCount === 4) {
+    if (this.state.questionCount === 23) {
       const completeData = {
         ...this.state.completedQuestions,
         [this.state.questionCount]: `${
@@ -63,6 +55,9 @@ class Problem extends React.Component {
   };
 
   onChange = e => {
+    if (e.length >= 3) {
+      return;
+    }
     this.setState({ currentAnswer: e });
   };
 
@@ -99,7 +94,7 @@ const styles = StyleSheet.create({
     top: 160,
     color: "#121212",
     position: "absolute",
-    fontSize: 75,
+    fontSize: 65,
     color: "red"
   },
   text4: {
@@ -107,11 +102,11 @@ const styles = StyleSheet.create({
     right: 100,
     color: "#121212",
     position: "absolute",
-    fontSize: 75
+    fontSize: 65
   },
   input: {
     top: 325,
-    right: 55,
+    right: 25,
     fontSize: 71,
     position: "absolute"
   },

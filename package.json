@@ -18,10 +18,13 @@
     "react-dom": "^16.8.6",
     "react-native": "0.59.8",
     "react-native-elements": "^1.1.0",
+    "react-native-gesture-handler": "^1.4.1",
     "react-native-ionicons": "^4.6.1",
     "react-native-material-design": "^0.3.7",
     "react-native-material-design-styles": "^0.2.7",
-    "react-native-web": "^0.11.4"
+    "react-native-reanimated": "^1.2.0",
+    "react-native-web": "^0.11.4",
+    "react-navigation": "^3.12.1"
   },
   "devDependencies": {
     "babel-preset-expo": "^6.0.0"

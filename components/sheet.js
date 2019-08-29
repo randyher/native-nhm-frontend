@@ -1,8 +1,9 @@
 import React from "react";
 import { StyleSheet, View, Text, TextInput, Keyboard } from "react-native";
 import { Center } from "@builderx/utils";
-import { Button } from "react-native-elements";
+import { Card, Button } from "react-native-elements";
 import Problem from "./problem";
+import Icon from "react-native-ionicons";
 
 class Sheet extends React.Component {
   state = {
@@ -104,6 +105,13 @@ const styles = StyleSheet.create({
     color: "#121212",
     position: "absolute",
     fontSize: 25
+  },
+  card1: {
+    top: 296.85,
+    left: 32.06,
+    width: 359,
+    height: 352,
+    position: "absolute"
   }
 });
 

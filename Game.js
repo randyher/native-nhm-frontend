@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, AsyncStorage } from "react-native";
 import Icon from "react-native-ionicons";
 import { Center } from "@builderx/utils";
 import { Button } from "react-native-elements";
-// import Auth from "./Auth.js";
 import Sheet from "./components/sheet";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
@@ -13,34 +12,6 @@ export default class Game extends Component {
     error: "",
     problems: []
   };
-
-  // async storeToken(accessToken) {
-  //   try {
-  //     await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
-  //     this.getToken();
-  //   } catch (error) {
-  //     console.log("something went wrong");
-  //   }
-  // }
-  //
-  // async getToken() {
-  //   try {
-  //     let token = await AsyncStorage.getItem(ACCESS_TOKEN);
-  //     console.log("token:", token);
-  //     return token;
-  //   } catch (error) {
-  //     console.log("something went wrong");
-  //   }
-  // }
-  //
-  // async removeToken(accessToken) {
-  //   try {
-  //     await AsyncStorage.removeItem(ACCESS_TOKEN);
-  //     this.getToken();
-  //   } catch (error) {
-  //     console.log("something went wrong");
-  //   }
-  // }
 
   componentDidMount() {
     fetch(`http://localhost:3000/problems`)

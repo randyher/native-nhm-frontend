@@ -1,8 +1,16 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, AsyncStorage } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  AsyncStorage,
+  TouchableHighlight,
+  TouchableOpacity,
+  Alert
+} from "react-native";
 import Icon from "react-native-ionicons";
 import { Center } from "@builderx/utils";
-import { Button } from "react-native-elements";
+import { Button, Card } from "react-native-elements";
 import Sheet from "./components/sheet";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 const ACCESS_TOKEN = "access_token";
@@ -57,8 +65,24 @@ export default class Game extends Component {
   }
 
   logUserOut = () => {
-    this.removeToken();
-    this.setState({ currentUser: "" });
+    Alert.alert(
+      "Logging Out",
+      "Are you sure you want to log out of your account?",
+      [
+        {
+          text: "Log Out",
+          onPress: () => {
+            this.removeToken();
+            this.setState({ currentUser: "" });
+          }
+        },
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        }
+      ]
+    );
   };
 
   render() {
@@ -93,12 +117,35 @@ export default class Game extends Component {
         <Icon type={"Ionicons"} name={"ios-menu"} style={styles.icon2} />
         <Center horizontal>
           {!this.state.currentUser ? (
-            <Text style={styles.text3}>Log In Mo' Fucka</Text>
+            <Text style={styles.text3}>No Hesitation Math</Text>
           ) : (
             <Text style={styles.text3}>Welcome {this.state.currentUser}</Text>
           )}
         </Center>
-        <Sheet problems={numberSentences} />
+        {this.state.currentUser ? (
+          <Sheet problems={numberSentences} />
+        ) : (
+          <Center>
+            <Card style={styles.card1} title="Log In">
+              <Text style={styles.text4}>
+                NHM is a way for students to practice their math facts! Before
+                getting started, click the button below to log in so you may get
+                started!
+              </Text>
+            </Card>
+            <TouchableOpacity
+              style={[styles.buttonContainer, styles.registerButton]}
+              onPress={() =>
+                this.props.navigation.navigate("Login", {
+                  logUserIn: this.logUserIn,
+                  otherParam: "anything you want here"
+                })
+              }
+            >
+              <Text style={styles.registerText}>Log in or Register</Text>
+            </TouchableOpacity>
+          </Center>
+        )}
       </View>
     );
   }
@@ -152,10 +199,23 @@ const styles = StyleSheet.create({
     height: 75.94,
     position: "absolute"
   },
+  card1: {
+    flex: 1,
+    left: 500
+  },
   text4: {
-    top: 375,
-    color: "#121212",
-    position: "absolute",
-    fontSize: 31
+    fontSize: 20
+  },
+  buttonContainer: {
+    height: 45,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+    width: 250,
+    borderRadius: 30
+  },
+  registerButton: {
+    backgroundColor: "#6495ED"
   }
 });

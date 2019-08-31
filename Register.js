@@ -52,7 +52,7 @@ export default class Login extends Component {
     }
   }
 
-  logIn = userData => {
+  registerAccount = userData => {
     const userObj = {
       user: {
         username: userData.username,
@@ -60,7 +60,7 @@ export default class Login extends Component {
       }
     };
 
-    fetch("http://localhost:3000/login", {
+    fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -85,7 +85,8 @@ export default class Login extends Component {
       <View style={styles.container}>
         <View style={styles.rect} />
         <Text style={styles.text2} />
-        <Text style={styles.text3}>Login</Text>
+        <Text style={styles.text3}>Register</Text>
+
         <Icon
           type={"Ionicons"}
           name={"ios-arrow-round-back"}
@@ -98,7 +99,6 @@ export default class Login extends Component {
             type={"Ionicons"}
             name={"ios-contact"}
           />
-
           <TextInput
             style={styles.inputs}
             placeholder="Username"
@@ -120,20 +120,9 @@ export default class Login extends Component {
 
         <TouchableOpacity
           style={[styles.buttonContainer, styles.loginButton]}
-          onPress={() => this.logIn(this.state)}
+          onPress={() => this.registerAccount(this.state)}
         >
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[styles.buttonContainer, styles.registerButton]}
-          onPress={() =>
-            this.props.navigation.navigate("Register", {
-              logUserIn: this.props.navigation.state.params.logUserIn
-            })
-          }
-        >
-          <Text style={styles.registerText}>Register Here</Text>
+          <Text style={styles.loginText}>Make Account</Text>
         </TouchableOpacity>
 
         {this.state.error ? (
@@ -191,12 +180,6 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: "white"
-  },
-  registerButton: {
-    backgroundColor: "#98FB98"
-  },
-  registerText: {
-    color: "black"
   },
   errorText: {
     color: "red"

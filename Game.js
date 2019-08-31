@@ -5,6 +5,7 @@ import { Center } from "@builderx/utils";
 import { Button } from "react-native-elements";
 import Sheet from "./components/sheet";
 import { createStackNavigator, createAppContainer } from "react-navigation";
+const ACCESS_TOKEN = "access_token";
 
 export default class Game extends Component {
   state = {
@@ -28,6 +29,39 @@ export default class Game extends Component {
     });
   };
 
+  async storeToken(accessToken) {
+    try {
+      await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
+      this.getToken();
+    } catch (error) {
+      console.log("something went wrong");
+    }
+  }
+
+  async getToken() {
+    try {
+      let token = await AsyncStorage.getItem(ACCESS_TOKEN);
+      console.log("token:", token);
+      return token;
+    } catch (error) {
+      console.log("something went wrong");
+    }
+  }
+
+  async removeToken() {
+    try {
+      await AsyncStorage.removeItem(ACCESS_TOKEN);
+      this.getToken();
+    } catch (error) {
+      console.log("something went wrong");
+    }
+  }
+
+  logUserOut = () => {
+    this.removeToken();
+    this.setState({ currentUser: "" });
+  };
+
   render() {
     const numberSentences = this.state.problems.map(problem => {
       return problem.number_sentence;
@@ -37,21 +71,34 @@ export default class Game extends Component {
       <View style={styles.root}>
         <View style={styles.rect} />
         <Text style={styles.text2} />
-        <Icon
-          type={"Ionicons"}
-          name={"ios-person"}
-          style={styles.icon}
-          onPress={() =>
-            this.props.navigation.navigate("Login", {
-              logUserIn: this.logUserIn,
-              error: this.state.error,
-              otherParam: "anything you want here"
-            })
-          }
-        />
+        {this.state.currentUser ? (
+          <Icon
+            type={"Ionicons"}
+            name={"ios-log-out"}
+            style={styles.icon}
+            onPress={this.logUserOut}
+          />
+        ) : (
+          <Icon
+            type={"Ionicons"}
+            name={"ios-person"}
+            style={styles.icon}
+            onPress={() =>
+              this.props.navigation.navigate("Login", {
+                logUserIn: this.logUserIn,
+                error: this.state.error,
+                otherParam: "anything you want here"
+              })
+            }
+          />
+        )}
         <Icon type={"Ionicons"} name={"ios-menu"} style={styles.icon2} />
         <Center horizontal>
-          <Text style={styles.text3}>Welcome {this.state.currentUser}</Text>
+          {!this.state.currentUser ? (
+            <Text style={styles.text3}>Log In Mo' Fucka</Text>
+          ) : (
+            <Text style={styles.text3}>Welcome {this.state.currentUser}</Text>
+          )}
         </Center>
         <Sheet problems={numberSentences} />
       </View>

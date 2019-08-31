@@ -35,7 +35,17 @@ export default class Game extends Component {
       <View style={styles.root}>
         <View style={styles.rect} />
         <Text style={styles.text2} />
-        <Icon type={"Ionicons"} name={"ios-person"} style={styles.icon} />
+        <Icon
+          type={"Ionicons"}
+          name={"ios-person"}
+          style={styles.icon}
+          onPress={() =>
+            this.props.navigation.navigate("Login", {
+              logInFunction: "Hey",
+              otherParam: "anything you want here"
+            })
+          }
+        />
         <Icon type={"Ionicons"} name={"ios-menu"} style={styles.icon2} />
         <Center horizontal>
           <Text style={styles.text3}>No Hesitation Math</Text>

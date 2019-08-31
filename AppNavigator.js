@@ -10,7 +10,12 @@ const AppNavigator = createStackNavigator(
         header: null
       }
     },
-    Login: { screen: Login }
+    Login: {
+      screen: Login,
+      navigationOptions: {
+        header: null
+      }
+    }
   },
   {
     initialRouteName: "Game",

@@ -68,7 +68,7 @@ export default class Game extends Component {
     });
 
     return (
-      <View style={styles.root}>
+      <View style={styles.container}>
         <View style={styles.rect} />
         <Text style={styles.text2} />
         {this.state.currentUser ? (
@@ -107,8 +107,9 @@ export default class Game extends Component {
 }
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1
+  container: {
+    flex: 1,
+    backgroundColor: "#F0F8FF"
   },
   rect: {
     top: 0,

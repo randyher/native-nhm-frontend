@@ -21,7 +21,7 @@ export default class Login extends Component {
   state = {
     username: "",
     password: "",
-    error: ""
+    errors: ""
   };
 
   async storeToken(accessToken) {
@@ -75,12 +75,13 @@ export default class Login extends Component {
           this.storeToken(userData.jwt);
         } else {
           console.log(userData);
-          this.setState({ error: userData.message });
+          this.setState({ errors: userData.message });
         }
       });
   };
 
   render() {
+    console.log(this.state.errors);
     return (
       <View style={styles.container}>
         <View style={styles.rect} />

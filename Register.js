@@ -75,12 +75,13 @@ export default class Login extends Component {
           this.storeToken(userData.jwt);
         } else {
           console.log(userData);
-          this.setState({ error: userData.message });
+          this.setState({ error: userData.error });
         }
       });
   };
 
   render() {
+    this.state.error;
     return (
       <View style={styles.container}>
         <View style={styles.rect} />

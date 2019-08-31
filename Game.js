@@ -1,16 +1,46 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, AsyncStorage } from "react-native";
 import Icon from "react-native-ionicons";
 import { Center } from "@builderx/utils";
 import { Button } from "react-native-elements";
+// import Auth from "./Auth.js";
 import Sheet from "./components/sheet";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 export default class Game extends Component {
   state = {
-    start: false,
+    currentUser: "",
+    error: "",
     problems: []
   };
+
+  // async storeToken(accessToken) {
+  //   try {
+  //     await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
+  //     this.getToken();
+  //   } catch (error) {
+  //     console.log("something went wrong");
+  //   }
+  // }
+  //
+  // async getToken() {
+  //   try {
+  //     let token = await AsyncStorage.getItem(ACCESS_TOKEN);
+  //     console.log("token:", token);
+  //     return token;
+  //   } catch (error) {
+  //     console.log("something went wrong");
+  //   }
+  // }
+  //
+  // async removeToken(accessToken) {
+  //   try {
+  //     await AsyncStorage.removeItem(ACCESS_TOKEN);
+  //     this.getToken();
+  //   } catch (error) {
+  //     console.log("something went wrong");
+  //   }
+  // }
 
   componentDidMount() {
     fetch(`http://localhost:3000/problems`)
@@ -20,10 +50,10 @@ export default class Game extends Component {
       });
   }
 
-  startGame = () => {
-    console.log("Life");
-    this.setState({
-      start: !this.state.start
+  logUserIn = username => {
+    console.log(username);
+    this.setState({ currentUser: username }, () => {
+      this.props.navigation.navigate("Game");
     });
   };
 
@@ -31,6 +61,7 @@ export default class Game extends Component {
     const numberSentences = this.state.problems.map(problem => {
       return problem.number_sentence;
     });
+
     return (
       <View style={styles.root}>
         <View style={styles.rect} />
@@ -41,14 +72,15 @@ export default class Game extends Component {
           style={styles.icon}
           onPress={() =>
             this.props.navigation.navigate("Login", {
-              logInFunction: "Hey",
+              logUserIn: this.logUserIn,
+              error: this.state.error,
               otherParam: "anything you want here"
             })
           }
         />
         <Icon type={"Ionicons"} name={"ios-menu"} style={styles.icon2} />
         <Center horizontal>
-          <Text style={styles.text3}>No Hesitation Math</Text>
+          <Text style={styles.text3}>Welcome {this.state.currentUser}</Text>
         </Center>
         <Sheet problems={numberSentences} />
       </View>

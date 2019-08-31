@@ -8,26 +8,80 @@ import {
   Button,
   TouchableHighlight,
   Image,
-  Alert
+  Alert,
+  AsyncStorage
 } from "react-native";
 import FormTextInput from "./components/formTextInput.js";
 import Icon from "react-native-ionicons";
 
+const ACCESS_TOKEN = "access_token";
+
 export default class Login extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    error: ""
   };
 
-  // onChangeUsername = e => {
-  //   console.log(e);
-  // };
-  //
-  // onChangePassword = e => {
-  //   console.log(e);
-  // };
+  async storeToken(accessToken) {
+    try {
+      await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
+      this.getToken();
+    } catch (error) {
+      console.log("something went wrong");
+    }
+  }
+
+  async getToken() {
+    try {
+      let token = await AsyncStorage.getItem(ACCESS_TOKEN);
+      console.log("token:", token);
+      return token;
+    } catch (error) {
+      console.log("something went wrong");
+    }
+  }
+
+  async removeToken(accessToken) {
+    try {
+      await AsyncStorage.removeItem(ACCESS_TOKEN);
+      this.getToken();
+    } catch (error) {
+      console.log("something went wrong");
+    }
+  }
+
+  logIn = userData => {
+    const userObj = {
+      user: {
+        username: userData.username,
+        password: userData.password
+      }
+    };
+
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userObj)
+    })
+      .then(res => res.json())
+      .then(userData => {
+        if (userData.jwt) {
+          console.log("Success", userData);
+          this.props.navigation.state.params.logUserIn(userData.user.username);
+          this.storeToken(userData.jwt);
+        } else {
+          console.log(userData);
+          this.setState({ error: userData.message });
+        }
+      });
+  };
+
   render() {
-    console.log(this.props.navigation.state.params);
+    const { logUserIn } = this.props.navigation.state.params;
+    console.log(this.state);
     return (
       <View style={styles.container}>
         <View style={styles.rect} />
@@ -37,6 +91,7 @@ export default class Login extends Component {
           type={"Ionicons"}
           name={"ios-arrow-round-back"}
           style={styles.icon2}
+          onPress={() => this.props.navigation.navigate("Game")}
         />
         <View style={styles.inputContainer}>
           <Icon
@@ -65,17 +120,16 @@ export default class Login extends Component {
 
         <TouchableHighlight
           style={[styles.buttonContainer, styles.loginButton]}
-          onPress={() => this.onClickListener("login")}
+          onPress={() => this.logIn(this.state)}
         >
           <Text style={styles.loginText}>Login</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight
-          style={styles.buttonContainer}
-          onPress={() => this.onClickListener("restore_password")}
-        >
-          <Text>Forgot your password?</Text>
-        </TouchableHighlight>
+        {this.state.error ? (
+          <TouchableHighlight style={styles.buttonContainer}>
+            <Text style={styles.errorText}>{this.state.error}</Text>
+          </TouchableHighlight>
+        ) : null}
 
         <TouchableHighlight
           style={styles.buttonContainer}
@@ -133,6 +187,9 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: "white"
+  },
+  errorText: {
+    color: "red"
   },
   text2: {
     top: 259.64,

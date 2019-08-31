@@ -6,10 +6,7 @@ export default class App extends Component {
     currentUser: ""
   };
 
-  logUserIn = () => {
-    console.log("LOG ME IN");
-  };
   render() {
-    return <AppContainer logUserIn={this.logUserIn} />;
+    return <AppContainer />;
   }
 }

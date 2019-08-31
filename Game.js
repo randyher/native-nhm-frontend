@@ -10,7 +10,6 @@ const ACCESS_TOKEN = "access_token";
 export default class Game extends Component {
   state = {
     currentUser: "",
-    error: "",
     problems: []
   };
 
@@ -86,7 +85,6 @@ export default class Game extends Component {
             onPress={() =>
               this.props.navigation.navigate("Login", {
                 logUserIn: this.logUserIn,
-                error: this.state.error,
                 otherParam: "anything you want here"
               })
             }

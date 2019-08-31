@@ -137,9 +137,9 @@ export default class Login extends Component {
           <Text style={styles.registerText}>Register Here</Text>
         </TouchableOpacity>
 
-        {this.state.error ? (
+        {this.state.errors ? (
           <TouchableHighlight style={styles.buttonContainer}>
-            <Text style={styles.errorText}>{this.state.error}</Text>
+            <Text style={styles.errorText}>{this.state.errors}</Text>
           </TouchableHighlight>
         ) : null}
       </View>

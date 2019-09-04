@@ -17,7 +17,7 @@ const ACCESS_TOKEN = "access_token";
 
 export default class Game extends Component {
   state = {
-    currentUser: "",
+    currentUser: "RandyHer",
     problems: []
   };
 
@@ -126,7 +126,7 @@ export default class Game extends Component {
           <Sheet problems={numberSentences} />
         ) : (
           <Center>
-            <Card style={styles.card1} title="Log In">
+            <Card style={styles.card1} title="Welcome">
               <Text style={styles.text4}>
                 NHM is a way for students to practice their math facts! Before
                 getting started, click the button below to log in so you may get
@@ -137,12 +137,11 @@ export default class Game extends Component {
               style={[styles.buttonContainer, styles.registerButton]}
               onPress={() =>
                 this.props.navigation.navigate("Login", {
-                  logUserIn: this.logUserIn,
-                  otherParam: "anything you want here"
+                  logUserIn: this.logUserIn
                 })
               }
             >
-              <Text style={styles.registerText}>Log in or Register</Text>
+              <Text style={styles.logRegText}>Log in or Register</Text>
             </TouchableOpacity>
           </Center>
         )}
@@ -190,7 +189,8 @@ const styles = StyleSheet.create({
     top: 100.99,
     color: "#121212",
     position: "absolute",
-    fontSize: 31
+    fontSize: 31,
+    fontFamily: "Chalkduster"
   },
   button: {
     top: 370.06,
@@ -199,15 +199,12 @@ const styles = StyleSheet.create({
     height: 75.94,
     position: "absolute"
   },
-  card1: {
-    flex: 1,
-    left: 500
-  },
   text4: {
-    fontSize: 20
+    fontSize: 20,
+    textAlign: "center"
   },
   buttonContainer: {
-    height: 45,
+    height: 50,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
@@ -217,5 +214,9 @@ const styles = StyleSheet.create({
   },
   registerButton: {
     backgroundColor: "#6495ED"
+  },
+  logRegText: {
+    fontSize: 20,
+    color: "white"
   }
 });

@@ -1,5 +1,13 @@
 import React from "react";
-import { StyleSheet, View, Text, TextInput, Keyboard } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Keyboard,
+  TouchableOpacity,
+  CheckBox
+} from "react-native";
 import { Center } from "@builderx/utils";
 import { Card, Button } from "react-native-elements";
 import Problem from "./problem";
@@ -66,11 +74,16 @@ class Sheet extends React.Component {
         {this.state.start ? (
           <Problem problems={questionBank} endGame={this.endGame} />
         ) : !this.state.end ? (
-          <Button
-            style={styles.button}
-            title="Start, yo"
-            onPress={this.startGame}
-          />
+          <Center horizontal>
+            <TouchableOpacity
+              style={[styles.button, styles.startButton]}
+              onPress={() => {
+                this.startGame();
+              }}
+            >
+              <Text style={styles.startText}>Start! </Text>
+            </TouchableOpacity>
+          </Center>
         ) : null}
         <Center>
           {this.state.end ? (
@@ -88,17 +101,23 @@ class Sheet extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    top: 370.06,
-    left: 115.0,
-    width: 145.81,
-    height: 75.94,
-    position: "absolute"
+    height: 50,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 350,
+    width: 250,
+    borderRadius: 30
   },
   text2: {
     top: 245,
     color: "#121212",
     position: "absolute",
     fontSize: 205
+  },
+  addOnly: {
+    marginTop: 300,
+    left: -500
   },
   text4: {
     top: 245,
@@ -112,6 +131,13 @@ const styles = StyleSheet.create({
     width: 359,
     height: 352,
     position: "absolute"
+  },
+  startButton: {
+    backgroundColor: "#7CFC00"
+  },
+  startText: {
+    color: "black",
+    fontSize: 25
   }
 });
 

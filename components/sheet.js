@@ -75,6 +75,7 @@ class Sheet extends React.Component {
           <Problem problems={questionBank} endGame={this.endGame} />
         ) : !this.state.end ? (
           <Center horizontal>
+            <Text style={styles.directions}> Only Addition </Text>
             <TouchableOpacity
               style={[styles.button, styles.startButton]}
               onPress={() => {
@@ -138,6 +139,15 @@ const styles = StyleSheet.create({
   startText: {
     color: "black",
     fontSize: 25
+  },
+  directions: {
+    height: 40,
+    fontSize: 30,
+    // justifyContent: "center",
+    // alignItems: "center",
+    top: 250,
+    right: 70
+    // borderRadius: 30
   }
 });
 

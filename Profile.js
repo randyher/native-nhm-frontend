@@ -27,25 +27,18 @@ export default class Profile extends Component {
             logUserOut();
           }}
         />
-        <Text style={styles.name} />
-        <Image
-          style={styles.avatar}
-          source={{ uri: "https://bootdey.com/img/Content/avatar/avatar6.png" }}
-        />
+        <Text style={styles.name}>{username}</Text>
+
         <View style={styles.body}>
           <View style={styles.bodyContent}>
-            <Text style={styles.name}>John Doe</Text>
-            <Text style={styles.info}>UX Designer / Mobile developer</Text>
-            <Text style={styles.description}>
-              Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum
-              electram expetendis, omittam deseruisse consequuntur ius an,
-            </Text>
+            <Text style={styles.info}>Select Below: </Text>
 
             <TouchableOpacity style={styles.buttonContainer}>
-              <Text>Opcion 1</Text>
+              <Text> Previous Games </Text>
             </TouchableOpacity>
+
             <TouchableOpacity style={styles.buttonContainer}>
-              <Text>Opcion 2</Text>
+              <Text> Stats </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -100,12 +93,14 @@ const styles = StyleSheet.create({
     marginTop: 130
   },
   name: {
-    fontSize: 22,
-    color: "red",
-    fontWeight: "600"
+    top: 20,
+    fontSize: 45,
+    color: "blue",
+    fontWeight: "600",
+    fontFamily: "Chalkduster"
   },
   body: {
-    marginTop: 40
+    marginTop: 10
   },
   bodyContent: {
     flex: 1,
@@ -116,7 +111,7 @@ const styles = StyleSheet.create({
   info: {
     fontSize: 16,
     color: "#00BFFF",
-    marginTop: 10
+    marginBottom: 20
   },
   description: {
     fontSize: 16,
@@ -125,12 +120,12 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   buttonContainer: {
-    marginTop: 10,
+    marginTop: 5,
     height: 45,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 10,
     width: 250,
     borderRadius: 30,
     backgroundColor: "#00BFFF"

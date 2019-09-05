@@ -17,7 +17,7 @@ const ACCESS_TOKEN = "access_token";
 
 export default class Game extends Component {
   state = {
-    currentUser: "RandyHer",
+    currentUser: "Randy",
     problems: []
   };
 
@@ -73,7 +73,9 @@ export default class Game extends Component {
           text: "Log Out",
           onPress: () => {
             this.removeToken();
-            this.setState({ currentUser: "" });
+            this.setState({ currentUser: "" }, () => {
+              this.props.navigation.navigate("Game");
+            });
           }
         },
         {
@@ -97,14 +99,19 @@ export default class Game extends Component {
         {this.state.currentUser ? (
           <Icon
             type={"Ionicons"}
-            name={"ios-log-out"}
+            name={"ios-person"}
             style={styles.icon}
-            onPress={this.logUserOut}
+            onPress={() =>
+              this.props.navigation.navigate("Profile", {
+                logUserOut: this.logUserOut,
+                username: this.state.currentUser
+              })
+            }
           />
         ) : (
           <Icon
             type={"Ionicons"}
-            name={"ios-person"}
+            name={"ios-log-in"}
             style={styles.icon}
             onPress={() =>
               this.props.navigation.navigate("Login", {

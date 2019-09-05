@@ -2,6 +2,7 @@ import { createAppContainer, createStackNavigator } from "react-navigation";
 import Game from "./Game";
 import Login from "./Login";
 import Register from "./Register";
+import Profile from "./Profile";
 
 const AppNavigator = createStackNavigator(
   {
@@ -19,6 +20,12 @@ const AppNavigator = createStackNavigator(
     },
     Register: {
       screen: Register,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Profile: {
+      screen: Profile,
       navigationOptions: {
         header: null
       }

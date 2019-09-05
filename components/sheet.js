@@ -6,10 +6,10 @@ import {
   TextInput,
   Keyboard,
   TouchableOpacity,
-  CheckBox
+  Switch
 } from "react-native";
 import { Center } from "@builderx/utils";
-import { Card, Button } from "react-native-elements";
+import { Card, Button, CheckBox, Slider } from "react-native-elements";
 import Problem from "./problem";
 import Icon from "react-native-ionicons";
 
@@ -18,7 +18,8 @@ class Sheet extends React.Component {
     score: 0,
     timeRemaining: 0,
     start: false,
-    end: false
+    end: false,
+    addOnly: false
   };
 
   startGame = () => {
@@ -59,23 +60,45 @@ class Sheet extends React.Component {
 
   render() {
     let questionBank = [];
+    let filteredQuestions = [...this.props.problems];
+
+    //Where the Question Filters Should Happen
+    if (this.state.addOnly) {
+      filteredQuestions = filteredQuestions.filter(problem => {
+        return problem.problem_type.split(" ")[0] === "Addition";
+      });
+    }
+
+    //
+    let numberSentences = filteredQuestions.map(problem => {
+      return problem.number_sentence;
+    });
+
     let i = 0;
     while (i < 24) {
       questionBank.push(
-        this.props.problems[
-          Math.floor(Math.random() * this.props.problems.length)
-        ]
+        numberSentences[Math.floor(Math.random() * numberSentences.length)]
       );
+
       i++;
     }
-
+    console.log(this.state);
     return (
       <View>
         {this.state.start ? (
           <Problem problems={questionBank} endGame={this.endGame} />
         ) : !this.state.end ? (
           <Center horizontal>
-            <Text style={styles.directions}> Only Addition </Text>
+            <Text style={styles.addOnlyText}> Only Addition </Text>
+
+            <Switch
+              style={styles.addOnlySwitch}
+              value={this.state.addOnly}
+              onValueChange={addOnly =>
+                this.setState({ addOnly: !this.state.addOnly })
+              }
+            />
+
             <TouchableOpacity
               style={[styles.button, styles.startButton]}
               onPress={() => {
@@ -116,10 +139,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     fontSize: 205
   },
-  addOnly: {
-    marginTop: 300,
-    left: -500
-  },
   text4: {
     top: 245,
     color: "#121212",
@@ -140,14 +159,21 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 25
   },
-  directions: {
+  addOnlyText: {
     height: 40,
     fontSize: 30,
     // justifyContent: "center",
     // alignItems: "center",
     top: 250,
-    right: 70
+    right: 50
+
     // borderRadius: 30
+  },
+  addOnlySwitch: {
+    alignItems: "stretch",
+    left: 90,
+    top: 213,
+    color: "red"
   }
 });
 

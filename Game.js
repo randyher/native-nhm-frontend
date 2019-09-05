@@ -123,7 +123,7 @@ export default class Game extends Component {
           )}
         </Center>
         {this.state.currentUser ? (
-          <Sheet problems={numberSentences} />
+          <Sheet problems={this.state.problems} />
         ) : (
           <Center>
             <Card style={styles.card1} title="Welcome">

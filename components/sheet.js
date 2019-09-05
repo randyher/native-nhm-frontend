@@ -12,6 +12,7 @@ import { Center } from "@builderx/utils";
 import { Card, Button, CheckBox, Slider } from "react-native-elements";
 import Problem from "./problem";
 import Icon from "react-native-ionicons";
+import Divider from "react-native-divider";
 
 class Sheet extends React.Component {
   state = {
@@ -19,7 +20,10 @@ class Sheet extends React.Component {
     timeRemaining: 0,
     start: false,
     end: false,
-    addOnly: false
+    addOnly: false,
+    subtractOnly: false,
+    doublesAndHalfOnly: false,
+    tensOnly: false
   };
 
   startGame = () => {
@@ -69,6 +73,27 @@ class Sheet extends React.Component {
       });
     }
 
+    if (this.state.subtractOnly) {
+      filteredQuestions = filteredQuestions.filter(problem => {
+        return problem.problem_type.split(" ")[0] === "Subtraction";
+      });
+    }
+
+    if (this.state.doublesAndHalfOnly) {
+      filteredQuestions = filteredQuestions.filter(problem => {
+        return (
+          problem.problem_type.split(" ")[1] === "Doubles" ||
+          problem.problem_type.split(" ")[1] === "Halving"
+        );
+      });
+    }
+
+    if (this.state.tensOnly) {
+      filteredQuestions = filteredQuestions.filter(problem => {
+        console.log(problem);
+        return problem.problem_type.split(" ")[1] === "Tens";
+      });
+    }
     //
     let numberSentences = filteredQuestions.map(problem => {
       return problem.number_sentence;
@@ -89,15 +114,67 @@ class Sheet extends React.Component {
           <Problem problems={questionBank} endGame={this.endGame} />
         ) : !this.state.end ? (
           <Center horizontal>
-            <Text style={styles.addOnlyText}> Only Addition </Text>
+            <View style={styles.inputContainer}>
+              <Text style={styles.filterText}> Only Addition </Text>
+              <Switch
+                style={styles.addOnlySwitch}
+                value={this.state.addOnly}
+                onValueChange={addOnly =>
+                  this.setState({
+                    addOnly: !this.state.addOnly,
+                    subtractOnly: false,
+                    doublesAndHalfOnly: false
+                  })
+                }
+              />
+            </View>
 
-            <Switch
-              style={styles.addOnlySwitch}
-              value={this.state.addOnly}
-              onValueChange={addOnly =>
-                this.setState({ addOnly: !this.state.addOnly })
-              }
-            />
+            <View style={styles.inputContainer}>
+              <Text style={styles.filterText}> Only Subtraction </Text>
+              <Switch
+                style={styles.subtractOnlySwitch}
+                value={this.state.subtractOnly}
+                onValueChange={subtractOnly =>
+                  this.setState({
+                    subtractOnly: !this.state.subtractOnly,
+                    addOnly: false,
+                    doublesAndHalfOnly: false
+                  })
+                }
+              />
+            </View>
+
+            <View style={styles.inputContainer}>
+              <Text style={styles.filterText}> Only Doubles & Halves </Text>
+              <Switch
+                style={styles.doublesAndHalfOnlySwitch}
+                value={this.state.doublesAndHalfOnly}
+                onValueChange={subtractOnly =>
+                  this.setState({
+                    doublesAndHalfOnly: !this.state.doublesAndHalfOnly,
+                    addOnly: false,
+                    subtractOnly: false,
+                    tensOnly: false
+                  })
+                }
+              />
+            </View>
+
+            <View style={styles.inputContainer}>
+              <Text style={styles.filterText}> Only Tens </Text>
+              <Switch
+                style={styles.tensOnlySwitch}
+                value={this.state.tensOnly}
+                onValueChange={tensOnly =>
+                  this.setState({
+                    tensOnly: !this.state.tensOnly,
+                    addOnly: false,
+                    subtractOnly: false,
+                    doublesAndHalfOnly: false
+                  })
+                }
+              />
+            </View>
 
             <TouchableOpacity
               style={[styles.button, styles.startButton]}
@@ -159,9 +236,9 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 25
   },
-  addOnlyText: {
+  filterText: {
     height: 40,
-    fontSize: 30,
+    fontSize: 25,
     // justifyContent: "center",
     // alignItems: "center",
     top: 250,
@@ -169,11 +246,16 @@ const styles = StyleSheet.create({
 
     // borderRadius: 30
   },
-  addOnlySwitch: {
-    alignItems: "stretch",
-    left: 90,
-    top: 213,
-    color: "red"
+  addOnlySwitch: { top: 250, left: 95 },
+  subtractOnlySwitch: { top: 250, left: 60 },
+  doublesAndHalfOnlySwitch: { top: 250 },
+  tensOnlySwitch: { top: 250, left: 135 },
+  inputContainer: {
+    width: 250,
+    height: 45,
+    marginBottom: 20,
+    flexDirection: "row",
+    alignItems: "center"
   }
 });
 

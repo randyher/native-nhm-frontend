@@ -81,7 +81,6 @@ export default class Login extends Component {
   };
 
   render() {
-    console.log(this.state.errors);
     return (
       <View style={styles.container}>
         <View style={styles.rect} />
@@ -100,10 +99,10 @@ export default class Login extends Component {
         />
         <Text style={styles.text2}> Practice your math facts!</Text>
         <Text style={styles.text3}>
-          No Hesitation Math helps students recite math facts fluently, without
-          hesitation
+          NHM is a way for students to practice their math facts! Before getting
+          started, log in or make an account!
         </Text>
-        <View style={[styles.inputContainer]}>
+        <View style={[styles.inputContainer, { marginBottom: 20 }]}>
           <Icon
             style={styles.inputIcon}
             type={"Ionicons"}
@@ -129,29 +128,28 @@ export default class Login extends Component {
           />
         </View>
 
-        <Image
-          style={styles.log}
-          source={require("./assets/login.png")}
-          onPress={() => this.logIn(this.state)}
-        />
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity
+            style={[styles.logButtonContainer]}
+            onPress={() => this.logIn(this.state)}
+          >
+            <Image style={styles.log} source={require("./assets/login.png")} />
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={[styles.buttonContainer, styles.loginButton]}
-          onPress={() => this.logIn(this.state)}
-        >
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[styles.buttonContainer, styles.registerButton]}
-          onPress={() =>
-            this.props.navigation.navigate("Register", {
-              logUserIn: this.props.navigation.state.params.logUserIn
-            })
-          }
-        >
-          <Text style={styles.registerText}>Register Here</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              this.props.navigation.navigate("Register", {
+                logUserIn: this.props.navigation.state.params.logUserIn
+              })
+            }
+            style={[styles.regButtonContainer]}
+          >
+            <Image
+              style={styles.reg}
+              source={require("./assets/register.png")}
+            />
+          </TouchableOpacity>
+        </View>
 
         {this.state.errors ? (
           <TouchableHighlight style={styles.buttonContainer}>
@@ -184,6 +182,25 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     aspectRatio: 1.5
   },
+  logButtonContainer: {
+    height: 40,
+    marginBottom: 100,
+    width: 140
+  },
+  regButtonContainer: {
+    marginLeft: 30,
+    marginBottom: 100
+  },
+  reg: {
+    height: 57,
+    width: 200,
+    resizeMode: "contain"
+  },
+  log: {
+    height: 55,
+    width: 200,
+    resizeMode: "contain"
+  },
   inputContainer: {
     borderBottomColor: "#F5FCFF",
     backgroundColor: "#FFFFFF",
@@ -211,27 +228,7 @@ const styles = StyleSheet.create({
     color: "gray",
     justifyContent: "center"
   },
-  buttonContainer: {
-    height: 45,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 20,
-    width: 250,
-    borderRadius: 30
-  },
-  loginButton: {
-    backgroundColor: "#6495ED"
-  },
-  loginText: {
-    color: "white"
-  },
-  registerButton: {
-    backgroundColor: "#98FB98"
-  },
-  registerText: {
-    color: "black"
-  },
+
   errorText: {
     color: "red"
   },
@@ -244,20 +241,13 @@ const styles = StyleSheet.create({
   },
   text2: {
     fontSize: 30,
-    bottom: 60,
+    bottom: 45,
     // marginBottom: 80,
     right: 15
   },
   text3: {
-    fontSize: 20,
+    fontSize: 17,
     left: 5,
-    bottom: 55
-  },
-  log: {
-    height: 60,
-    top: 440,
-    position: "absolute",
-    resizeMode: "contain",
-    aspectRatio: 1.5
+    bottom: 30
   }
 });

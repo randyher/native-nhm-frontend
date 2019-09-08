@@ -136,8 +136,7 @@ export default class Game extends Component {
             <Card style={styles.card1} title="Welcome">
               <Text style={styles.text4}>
                 NHM is a way for students to practice their math facts! Before
-                getting started, click the button below to log in so you may get
-                started!
+                getting started,log in or make an account!
               </Text>
             </Card>
             <TouchableOpacity

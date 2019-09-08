@@ -85,15 +85,25 @@ export default class Login extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.rect} />
-        <Text style={styles.text2} />
-        <Text style={styles.text3}>Login</Text>
+        <Center horizontal>
+          <Image
+            style={styles.headerText}
+            source={require("./assets/header.png")}
+          />
+        </Center>
+
         <Icon
           type={"Ionicons"}
           name={"ios-arrow-round-back"}
           style={styles.icon2}
           onPress={() => this.props.navigation.navigate("Game")}
         />
-        <View style={styles.inputContainer}>
+        <Text style={styles.text2}> Practice your math facts!</Text>
+        <Text style={styles.text3}>
+          No Hesitation Math helps students recite math facts fluently, without
+          hesitation
+        </Text>
+        <View style={[styles.inputContainer]}>
           <Icon
             style={styles.inputIcon}
             type={"Ionicons"}
@@ -108,7 +118,7 @@ export default class Login extends Component {
           />
         </View>
 
-        <View style={styles.inputContainer}>
+        <View style={[styles.inputContainer]}>
           <Icon style={styles.inputIcon} type={"Ionicons"} name={"ios-lock"} />
           <TextInput
             style={styles.inputs}
@@ -118,6 +128,12 @@ export default class Login extends Component {
             onChangeText={password => this.setState({ password })}
           />
         </View>
+
+        <Image
+          style={styles.log}
+          source={require("./assets/login.png")}
+          onPress={() => this.logIn(this.state)}
+        />
 
         <TouchableOpacity
           style={[styles.buttonContainer, styles.loginButton]}
@@ -151,31 +167,48 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F0F8FF"
+    alignItems: "center"
+  },
+  rect: {
+    top: 0,
+    left: 0,
+    width: 375,
+    height: 150.08,
+    backgroundColor: "#c4df9b",
+    position: "absolute"
+  },
+  headerText: {
+    height: 36,
+    top: 95,
+    position: "absolute",
+    resizeMode: "contain",
+    aspectRatio: 1.5
   },
   inputContainer: {
     borderBottomColor: "#F5FCFF",
     backgroundColor: "#FFFFFF",
-    borderRadius: 30,
+    // borderRadius: 30,
     borderBottomWidth: 1,
-    width: 250,
-    height: 45,
+    width: 325,
+    height: 40,
     marginBottom: 20,
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#b3dcff"
   },
   inputs: {
+    color: "#b3dcff",
     height: 45,
     marginLeft: 16,
     borderBottomColor: "#FFFFFF",
+    color: "black",
     flex: 1
   },
   inputIcon: {
     width: 30,
     height: 30,
     marginLeft: 15,
-    color: "#6495ED",
+    color: "gray",
     justifyContent: "center"
   },
   buttonContainer: {
@@ -202,14 +235,6 @@ const styles = StyleSheet.create({
   errorText: {
     color: "red"
   },
-  text2: {
-    top: 259.64,
-    left: 0,
-    width: 0,
-    height: 0,
-    color: "#121212",
-    position: "absolute"
-  },
   icon2: {
     top: 44.04,
     position: "absolute",
@@ -217,10 +242,22 @@ const styles = StyleSheet.create({
     fontSize: 40,
     left: "4.55%"
   },
+  text2: {
+    fontSize: 30,
+    bottom: 60,
+    // marginBottom: 80,
+    right: 15
+  },
   text3: {
-    top: 100.99,
-    color: "#121212",
+    fontSize: 20,
+    left: 5,
+    bottom: 55
+  },
+  log: {
+    height: 60,
+    top: 440,
     position: "absolute",
-    fontSize: 31
+    resizeMode: "contain",
+    aspectRatio: 1.5
   }
 });

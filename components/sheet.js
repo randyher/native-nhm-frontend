@@ -6,13 +6,15 @@ import {
   TextInput,
   Keyboard,
   TouchableOpacity,
-  Switch
+  Switch,
+  Card
 } from "react-native";
 import { Center } from "@builderx/utils";
-import { Card, Button, CheckBox, Slider } from "react-native-elements";
+import { Button, CheckBox, Slider } from "react-native-elements";
 import Problem from "./problem";
 import Icon from "react-native-ionicons";
 import Divider from "react-native-divider";
+// import { Card } from "antd";
 
 class Sheet extends React.Component {
   state = {
@@ -123,7 +125,8 @@ class Sheet extends React.Component {
                   this.setState({
                     addOnly: !this.state.addOnly,
                     subtractOnly: false,
-                    doublesAndHalfOnly: false
+                    doublesAndHalfOnly: false,
+                    tensOnly: false
                   })
                 }
               />
@@ -138,7 +141,8 @@ class Sheet extends React.Component {
                   this.setState({
                     subtractOnly: !this.state.subtractOnly,
                     addOnly: false,
-                    doublesAndHalfOnly: false
+                    doublesAndHalfOnly: false,
+                    tensOnly: false
                   })
                 }
               />
@@ -206,7 +210,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 350,
+    marginTop: 300,
     width: 250,
     borderRadius: 30
   },

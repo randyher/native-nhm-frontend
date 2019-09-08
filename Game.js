@@ -6,7 +6,8 @@ import {
   AsyncStorage,
   TouchableHighlight,
   TouchableOpacity,
-  Alert
+  Alert,
+  Image
 } from "react-native";
 import Icon from "react-native-ionicons";
 import { Center } from "@builderx/utils";
@@ -17,7 +18,7 @@ const ACCESS_TOKEN = "access_token";
 
 export default class Game extends Component {
   state = {
-    currentUser: "Randy",
+    currentUser: "",
     problems: []
   };
 
@@ -123,11 +124,10 @@ export default class Game extends Component {
         )}
         <Icon type={"Ionicons"} name={"ios-menu"} style={styles.icon2} />
         <Center horizontal>
-          {!this.state.currentUser ? (
-            <Text style={styles.text3}>No Hesitation Math</Text>
-          ) : (
-            <Text style={styles.text3}>Welcome {this.state.currentUser}</Text>
-          )}
+          <Image
+            style={styles.headerText}
+            source={require("./assets/header.png")}
+          />
         </Center>
         {this.state.currentUser ? (
           <Sheet problems={this.state.problems} />
@@ -162,12 +162,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F0F8FF"
   },
+  headerText: {
+    height: 36,
+    top: 95,
+    position: "absolute",
+    resizeMode: "contain",
+    aspectRatio: 1.5
+  },
   rect: {
     top: 0,
     left: 0,
     width: 375,
-    height: 88.08,
-    backgroundColor: "rgba(230, 230, 230,1)",
+    height: 150.08,
+    backgroundColor: "#c4df9b",
     position: "absolute"
   },
   text2: {

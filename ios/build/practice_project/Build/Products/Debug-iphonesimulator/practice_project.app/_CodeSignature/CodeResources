@@ -71,11 +71,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ayhUJ/oQbWq3X11rVaKRvUmfl2E=
+		+GZvf9HIs7zwsS9k4bEjDUd7obk=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
 		DxeLSyhv5ty7RT1yWoFijEcvJo0=
+		</data>
+		<key>LondonBetween.ttf</key>
+		<data>
+		NnW87rPYx7Py2KTCamUc4mX6jWA=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -99,7 +103,7 @@
 		</data>
 		<key>PlugIns/practice_projectTests.xctest/practice_projectTests</key>
 		<data>
-		XN7YIe0LiMDfDAg+pVbq56SzQwU=
+		P8gNBKcAjybw2KMa6ozsMtM2VSc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -282,6 +286,17 @@
 			utwl2yIGNbZ63JEvj2yj6h6MwrFZahpWIWhDwefBcwI=
 			</data>
 		</dict>
+		<key>LondonBetween.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NnW87rPYx7Py2KTCamUc4mX6jWA=
+			</data>
+			<key>hash2</key>
+			<data>
+			O17jsrmLlKVkb+s5Jyj1GngmNuLn+cseCrLnQXzer0s=
+			</data>
+		</dict>
 		<key>PlugIns/practice_projectTests.xctest.dSYM/Contents/Info.plist</key>
 		<dict>
 			<key>hash</key>
@@ -330,11 +345,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XN7YIe0LiMDfDAg+pVbq56SzQwU=
+			P8gNBKcAjybw2KMa6ozsMtM2VSc=
 			</data>
 			<key>hash2</key>
 			<data>
-			47qzC9P/7nH/EV3pR/6tI+zND9y+BeURG892mn6mHX8=
+			/+8jdvdqwvRUdN0EGkwc5k6WpX+I6lq/598SlXTZ+aM=
 			</data>
 		</dict>
 	</dict>

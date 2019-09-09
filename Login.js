@@ -71,8 +71,9 @@ export default class Login extends Component {
       .then(userData => {
         if (userData.jwt) {
           console.log("Success", userData);
-          this.props.navigation.state.params.logUserIn(userData.user.username);
+          // this.props.navigation.state.params.logUserIn(userData.user.username);
           this.storeToken(userData.jwt);
+          this.props.navigation.navigate("Game");
         } else {
           console.log(userData);
           this.setState({ errors: userData.message });
@@ -93,14 +94,14 @@ export default class Login extends Component {
 
         <Icon
           type={"Ionicons"}
-          name={"ios-arrow-round-back"}
+          name={"ios-menu"}
           style={styles.icon2}
-          onPress={() => this.props.navigation.navigate("Game")}
+          onPress={() => alert("This Doesn't Work Yet :)");)}
         />
         <Text style={styles.text2}> Practice your math facts!</Text>
         <Text style={styles.text3}>
-          NHM is a way for students to practice their math facts! Before getting
-          started, log in or make an account!
+          No Hesitation Math helps students recite math facts fluetly and
+          without hesitation!
         </Text>
         <View style={[styles.inputContainer, { marginBottom: 20 }]}>
           <Icon
@@ -171,7 +172,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     width: 375,
-    height: 150.08,
+    height: 138.08,
     backgroundColor: "#c4df9b",
     position: "absolute"
   },
@@ -184,12 +185,12 @@ const styles = StyleSheet.create({
   },
   logButtonContainer: {
     height: 40,
-    marginBottom: 100,
+    marginBottom: 130,
     width: 140
   },
   regButtonContainer: {
     marginLeft: 30,
-    marginBottom: 100
+    marginBottom: 130
   },
   reg: {
     height: 57,
@@ -243,11 +244,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     bottom: 45,
     // marginBottom: 80,
-    right: 15
+    right: 10,
+    fontFamily: "LondonBetween"
   },
   text3: {
     fontSize: 17,
-    left: 5,
-    bottom: 30
+    left: 10,
+    bottom: 30,
+    fontFamily: "LondonBetween"
   }
 });

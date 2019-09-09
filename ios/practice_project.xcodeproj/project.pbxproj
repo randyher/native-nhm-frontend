@@ -44,6 +44,7 @@
 		263CCEE4421547D8AA5F0151 /* libRNReanimated-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA705410926C4D37AB061922 /* libRNReanimated-tvOS.a */; };
 		55F30CB0B10B489EB15222B7 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 356999D505F2400197844356 /* libRNGestureHandler.a */; };
 		62AC016FD8BB41CAB33FC17B /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AE14815CAB49B7B6431E8B /* libRNGestureHandler-tvOS.a */; };
+		0481FE6A382B43F5A442530E /* LondonBetween.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D36D5841B41048EA894696F2 /* LondonBetween.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -358,6 +359,7 @@
 		3E457A91B77B403BB93AA251 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; name = "RNGestureHandler.xcodeproj"; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		356999D505F2400197844356 /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		B3AE14815CAB49B7B6431E8B /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		D36D5841B41048EA894696F2 /* LondonBetween.ttf */ = {isa = PBXFileReference; name = "LondonBetween.ttf"; path = "../assets/fonts/LondonBetween.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -633,6 +635,7 @@
 			isa = "PBXGroup";
 			children = (
 				4C0CACD7274B45B38083C576 /* Ionicons.ttf */,
+				D36D5841B41048EA894696F2 /* LondonBetween.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1085,6 +1088,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				64736E8FA9E44291A7776453 /* Ionicons.ttf in Resources */,
+				0481FE6A382B43F5A442530E /* LondonBetween.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

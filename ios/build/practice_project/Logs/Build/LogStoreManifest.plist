@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>24E0E30D-A7E3-437E-9C7A-DFE44E373F82</key>
+		<key>5770ED70-ADBD-4EB0-9CD6-AFD33AA690FD</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>24E0E30D-A7E3-437E-9C7A-DFE44E373F82.xcactivitylog</string>
+			<string>5770ED70-ADBD-4EB0-9CD6-AFD33AA690FD.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -30,45 +30,13 @@
 			<key>signature</key>
 			<string>Building project practice_project with scheme practice_project and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>589586144.91483796</real>
+			<real>589676987.26601696</real>
 			<key>timeStoppedRecording</key>
-			<real>589586145.77844799</real>
+			<real>589676995.27879596</real>
 			<key>title</key>
 			<string>Building project practice_project with scheme practice_project and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>24E0E30D-A7E3-437E-9C7A-DFE44E373F82</string>
-		</dict>
-		<key>3B5954A2-6920-48D9-BC1C-537EB484AB03</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>3B5954A2-6920-48D9-BC1C-537EB484AB03.xcactivitylog</string>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>practice_project project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>practice_project</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building project practice_project with scheme practice_project and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>589597287.10098195</real>
-			<key>timeStoppedRecording</key>
-			<real>589597288.00029099</real>
-			<key>title</key>
-			<string>Building project practice_project with scheme practice_project and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>3B5954A2-6920-48D9-BC1C-537EB484AB03</string>
+			<string>5770ED70-ADBD-4EB0-9CD6-AFD33AA690FD</string>
 		</dict>
 	</dict>
 </dict>

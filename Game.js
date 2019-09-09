@@ -19,7 +19,8 @@ const ACCESS_TOKEN = "access_token";
 export default class Game extends Component {
   state = {
     userData: {},
-    problems: []
+    problems: [],
+    clicksRemoved: false
   };
 
   componentDidMount() {
@@ -39,6 +40,10 @@ export default class Game extends Component {
     this.setState({ currentUser: username }, () => {
       this.props.navigation.navigate("Game");
     });
+  };
+
+  removeClickables = () => {
+    this.setState({ clicksRemoved: !this.state.clicksRemoved });
   };
 
   async storeToken(accessToken) {
@@ -79,7 +84,7 @@ export default class Game extends Component {
           onPress: () => {
             this.removeToken();
             this.setState({ currentUser: "" }, () => {
-              this.props.navigation.navigate("Game");
+              this.props.navigation.navigate("Login");
             });
           }
         },
@@ -120,7 +125,15 @@ export default class Game extends Component {
             source={require("./assets/header.png")}
           />
         </Center>
-        <Sheet problems={this.state.problems} />
+        {!this.state.clicksRemoved ? (
+          <Text style={styles.text2}>
+            Welcome {this.state.userData.username}!
+          </Text>
+        ) : null}
+        <Sheet
+          problems={this.state.problems}
+          removeClickables={this.removeClickables}
+        />
       </View>
     );
   }
@@ -147,10 +160,10 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   text2: {
-    top: 259.64,
-    left: 0,
-    width: 0,
-    height: 0,
+    top: 175,
+    fontSize: 30,
+    left: 15,
+    fontFamily: "LondonBetween",
     color: "#121212",
     position: "absolute"
   },

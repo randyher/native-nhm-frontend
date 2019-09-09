@@ -7,7 +7,8 @@ import {
   Keyboard,
   TouchableOpacity,
   Switch,
-  Card
+  Card,
+  Image
 } from "react-native";
 import { Center } from "@builderx/utils";
 import { Button, CheckBox, Slider } from "react-native-elements";
@@ -29,6 +30,7 @@ class Sheet extends React.Component {
   };
 
   startGame = () => {
+    this.props.removeClickables();
     this.setState({
       start: true
     });
@@ -92,7 +94,6 @@ class Sheet extends React.Component {
 
     if (this.state.tensOnly) {
       filteredQuestions = filteredQuestions.filter(problem => {
-        console.log(problem);
         return problem.problem_type.split(" ")[1] === "Tens";
       });
     }
@@ -179,14 +180,16 @@ class Sheet extends React.Component {
                 }
               />
             </View>
-
             <TouchableOpacity
-              style={[styles.button, styles.startButton]}
+              style={styles.startButtonContainer}
               onPress={() => {
                 this.startGame();
               }}
             >
-              <Text style={styles.startText}>Start! </Text>
+              <Image
+                style={styles.startButton}
+                source={require("../assets/start.png")}
+              />
             </TouchableOpacity>
           </Center>
         ) : null}
@@ -233,9 +236,7 @@ const styles = StyleSheet.create({
     height: 352,
     position: "absolute"
   },
-  startButton: {
-    backgroundColor: "#7CFC00"
-  },
+
   startText: {
     color: "black",
     fontSize: 25
@@ -260,6 +261,18 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     flexDirection: "row",
     alignItems: "center"
+  },
+  startButton: {
+    height: 63,
+    width: 188,
+    resizeMode: "contain"
+  },
+  startButtonContainer: {
+    top: 250,
+    backgroundColor: "red",
+    height: 63,
+    marginBottom: 130,
+    width: 188
   }
 });
 

@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
     color: "#121212",
     position: "absolute",
     fontSize: 65,
+
     color: "red"
   },
   text4: {

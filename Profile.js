@@ -4,8 +4,8 @@ import Icon from "react-native-ionicons";
 
 export default class Profile extends Component {
   render() {
-    // console.log(this.props.navigation.state.params);
-    const { userData } = this.props.navigation.state.params;
+    console.log(this.props.navigation.state.params);
+    const { userData, logUserOut } = this.props.navigation.state.params;
 
     return (
       <View style={styles.container}>

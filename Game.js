@@ -18,15 +18,19 @@ const ACCESS_TOKEN = "access_token";
 
 export default class Game extends Component {
   state = {
-    currentUser: "",
+    userData: {},
     problems: []
   };
 
   componentDidMount() {
+    console.log(this.props);
     fetch(`http://localhost:3000/problems`)
       .then(res => res.json())
       .then(problems => {
-        this.setState({ problems: problems });
+        this.setState({
+          problems: problems,
+          userData: this.props.navigation.state.params.userData.user
+        });
       });
   }
 
@@ -92,36 +96,23 @@ export default class Game extends Component {
     const numberSentences = this.state.problems.map(problem => {
       return problem.number_sentence;
     });
+    console.log(this.state);
 
     return (
       <View style={styles.container}>
         <View style={styles.rect} />
         <Text style={styles.text2} />
-        {this.state.currentUser ? (
-          <Icon
-            type={"Ionicons"}
-            name={"ios-person"}
-            style={styles.icon}
-            onPress={() =>
-              this.props.navigation.navigate("Profile", {
-                logUserOut: this.logUserOut,
-                username: this.state.currentUser
-              })
-            }
-          />
-        ) : (
-          <Icon
-            type={"Ionicons"}
-            name={"ios-log-in"}
-            style={styles.icon}
-            onPress={() =>
-              this.props.navigation.navigate("Login", {
-                logUserIn: this.logUserIn,
-                otherParam: "anything you want here"
-              })
-            }
-          />
-        )}
+        <Icon
+          type={"Ionicons"}
+          name={"ios-person"}
+          style={styles.icon}
+          onPress={() =>
+            this.props.navigation.navigate("Profile", {
+              logUserOut: this.logUserOut,
+              userData: this.state.userData
+            })
+          }
+        />
         <Icon type={"Ionicons"} name={"ios-menu"} style={styles.icon2} />
         <Center horizontal>
           <Image
@@ -129,28 +120,7 @@ export default class Game extends Component {
             source={require("./assets/header.png")}
           />
         </Center>
-        {this.state.currentUser ? (
-          <Sheet problems={this.state.problems} />
-        ) : (
-          <Center>
-            <Card style={styles.card1} title="Welcome">
-              <Text style={styles.text4}>
-                NHM is a way for students to practice their math facts! Before
-                getting started,log in or make an account!
-              </Text>
-            </Card>
-            <TouchableOpacity
-              style={[styles.buttonContainer, styles.registerButton]}
-              onPress={() =>
-                this.props.navigation.navigate("Login", {
-                  logUserIn: this.logUserIn
-                })
-              }
-            >
-              <Text style={styles.logRegText}>Log in or Register</Text>
-            </TouchableOpacity>
-          </Center>
-        )}
+        <Sheet problems={this.state.problems} />
       </View>
     );
   }
@@ -159,7 +129,7 @@ export default class Game extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F0F8FF"
+    backgroundColor: "white"
   },
   headerText: {
     height: 36,

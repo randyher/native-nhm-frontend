@@ -73,7 +73,9 @@ export default class Login extends Component {
           console.log("Success", userData);
           // this.props.navigation.state.params.logUserIn(userData.user.username);
           this.storeToken(userData.jwt);
-          this.props.navigation.navigate("Game");
+          this.props.navigation.navigate("Game", {
+            userData: userData
+          });
         } else {
           console.log(userData);
           this.setState({ errors: userData.message });
@@ -96,7 +98,7 @@ export default class Login extends Component {
           type={"Ionicons"}
           name={"ios-menu"}
           style={styles.icon2}
-          onPress={() => alert("This Doesn't Work Yet :)");)}
+          onPress={() => alert("This Doesn't Work Yet :)")}
         />
         <Text style={styles.text2}> Practice your math facts!</Text>
         <Text style={styles.text3}>
@@ -138,11 +140,7 @@ export default class Login extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() =>
-              this.props.navigation.navigate("Register", {
-                logUserIn: this.props.navigation.state.params.logUserIn
-              })
-            }
+            onPress={() => this.props.navigation.navigate("Register")}
             style={[styles.regButtonContainer]}
           >
             <Image

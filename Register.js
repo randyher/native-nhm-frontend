@@ -71,8 +71,11 @@ export default class Login extends Component {
       .then(userData => {
         if (userData.jwt) {
           console.log("Success", userData);
-          this.props.navigation.state.params.logUserIn(userData.user.username);
+
           this.storeToken(userData.jwt);
+          this.props.navigation.navigate("Game", {
+            userData: userData
+          });
         } else {
           console.log(userData);
           this.setState({ errors: userData.error });

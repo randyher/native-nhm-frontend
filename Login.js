@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
   icon2: {
     top: 44.04,
     position: "absolute",
-    color: "grey",
+    color: "black",
     fontSize: 40,
     left: "4.55%"
   },

@@ -171,13 +171,13 @@ const styles = StyleSheet.create({
     top: 44.04,
     left: 324.49,
     position: "absolute",
-    color: "grey",
+    color: "black",
     fontSize: 40
   },
   icon2: {
     top: 44.04,
     position: "absolute",
-    color: "grey",
+    color: "black",
     fontSize: 40,
     left: "4.55%"
   },

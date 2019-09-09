@@ -71,7 +71,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		+GZvf9HIs7zwsS9k4bEjDUd7obk=
+		cvJyNzv4af4+fFJFN3SN74Tw9ts=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
@@ -80,6 +80,10 @@
 		<key>LondonBetween.ttf</key>
 		<data>
 		NnW87rPYx7Py2KTCamUc4mX6jWA=
+		</data>
+		<key>LondonTwo.ttf</key>
+		<data>
+		8XBOO0861zAKdoqTptdlaM7HDZw=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -295,6 +299,17 @@
 			<key>hash2</key>
 			<data>
 			O17jsrmLlKVkb+s5Jyj1GngmNuLn+cseCrLnQXzer0s=
+			</data>
+		</dict>
+		<key>LondonTwo.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8XBOO0861zAKdoqTptdlaM7HDZw=
+			</data>
+			<key>hash2</key>
+			<data>
+			fz+JpxqelfR7kqi9spqxheu4mmckl/nBeqOUMAixaP4=
 			</data>
 		</dict>
 		<key>PlugIns/practice_projectTests.xctest.dSYM/Contents/Info.plist</key>

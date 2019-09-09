@@ -32,7 +32,7 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Game",
+    initialRouteName: "Login",
     title: "HEY"
   }
 );

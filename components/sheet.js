@@ -113,11 +113,17 @@ class Sheet extends React.Component {
     console.log(this.state);
     return (
       <View>
+        <Text style={styles.text2}>
+          Press start to begin the game. Activate
+        </Text>
+        <Text style={styles.text3}>
+          filters to practice a specific subject!
+        </Text>
         {this.state.start ? (
           <Problem problems={questionBank} endGame={this.endGame} />
         ) : !this.state.end ? (
           <Center horizontal>
-            <View style={styles.inputContainer}>
+            <View style={[styles.inputContainer, { marginTop: 26 }]}>
               <Text style={styles.filterText}> Only Addition </Text>
               <Switch
                 style={styles.addOnlySwitch}
@@ -218,10 +224,16 @@ const styles = StyleSheet.create({
     borderRadius: 30
   },
   text2: {
-    top: 245,
+    top: 210,
     color: "#121212",
-    position: "absolute",
-    fontSize: 205
+    left: 15,
+    fontSize: 18
+  },
+  text3: {
+    top: 210,
+    color: "#121212",
+    left: 15,
+    fontSize: 18
   },
   text4: {
     top: 245,
@@ -247,18 +259,19 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
     // alignItems: "center",
     top: 250,
-    right: 50
-
+    right: 55,
+    fontFamily: "LondonBetween",
+    fontWeight: "bold"
     // borderRadius: 30
   },
-  addOnlySwitch: { top: 250, left: 95 },
-  subtractOnlySwitch: { top: 250, left: 60 },
-  doublesAndHalfOnlySwitch: { top: 250 },
-  tensOnlySwitch: { top: 250, left: 135 },
+  addOnlySwitch: { top: 250, left: 80 },
+  subtractOnlySwitch: { top: 250, left: 50 },
+  doublesAndHalfOnlySwitch: { top: 250, left: -5 },
+  tensOnlySwitch: { top: 250, left: 119 },
   inputContainer: {
     width: 250,
     height: 45,
-    marginBottom: 20,
+    marginBottom: 8,
     flexDirection: "row",
     alignItems: "center"
   },

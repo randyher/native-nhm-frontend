@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
   },
   startButtonContainer: {
     top: 250,
-    backgroundColor: "red",
+
     height: 63,
     marginBottom: 130,
     width: 188

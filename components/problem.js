@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TextInput, Keyboard } from "react-native";
 import { Center } from "@builderx/utils";
 import { Button } from "react-native-elements";
 import Icon from "react-native-ionicons";
+import CountdownCircle from "react-native-countdown-circle";
 
 class Problem extends React.Component {
   state = {
@@ -63,10 +64,28 @@ class Problem extends React.Component {
 
   render() {
     const problem = this.props.problems[this.state.questionCount];
+    let color;
+    if (this.state.timer >= 30) {
+      color = "green";
+    } else if (this.state.timer < 30 && this.state.timer > 10) {
+      color = "yellow";
+    } else {
+      color = "red";
+    }
     return (
       <View>
         <Center horizontal>
-          <Text style={styles.text3}> {this.state.timer} </Text>
+          <View style={styles.timer}>
+            <CountdownCircle
+              seconds={this.state.timer}
+              radius={50}
+              borderWidth={8}
+              color={color}
+              bgColor="#fff"
+              textStyle={{ fontSize: 27 }}
+              onTimeElapsed={() => console.log("Elapsed!")}
+            />
+          </View>
           <Text style={styles.text4}> {problem} </Text>
           <TextInput
             style={styles.input}
@@ -90,12 +109,12 @@ class Problem extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  text3: {
-    top: 160,
+  timer: {
+    top: 150,
     color: "#121212",
     position: "absolute",
     fontSize: 65,
-
+    marginTop: 20,
     color: "red"
   },
   text4: {

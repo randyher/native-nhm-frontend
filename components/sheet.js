@@ -26,13 +26,15 @@ class Sheet extends React.Component {
     addOnly: false,
     subtractOnly: false,
     doublesAndHalfOnly: false,
-    tensOnly: false
+    tensOnly: false,
+    intructions: false
   };
 
   startGame = () => {
     this.props.removeClickables();
     this.setState({
-      start: true
+      start: true,
+      intructions: true
     });
   };
 
@@ -113,12 +115,17 @@ class Sheet extends React.Component {
     console.log(this.state);
     return (
       <View>
-        <Text style={styles.text2}>
-          Press start to begin the game. Activate
-        </Text>
-        <Text style={styles.text3}>
-          filters to practice a specific subject!
-        </Text>
+        {this.state.intructions ? null : (
+          <View>
+            <Text style={styles.text2}>
+              Press start to begin the game. Activate
+            </Text>
+            <Text style={styles.text3}>
+              filters to practice a specific subject!
+            </Text>
+          </View>
+        )}
+
         {this.state.start ? (
           <Problem problems={questionBank} endGame={this.endGame} />
         ) : !this.state.end ? (

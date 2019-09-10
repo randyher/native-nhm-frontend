@@ -18,6 +18,7 @@
     "react-cupertino": "^0.4.3",
     "react-dom": "^16.8.6",
     "react-native": "0.59.8",
+    "react-native-countdown-circle": "^3.0.1",
     "react-native-divider": "^1.0.3",
     "react-native-elements": "^1.1.0",
     "react-native-gesture-handler": "^1.4.1",

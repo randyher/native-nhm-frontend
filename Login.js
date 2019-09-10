@@ -102,8 +102,10 @@ export default class Login extends Component {
         />
         <Text style={styles.text2}> Practice your math facts!</Text>
         <Text style={styles.text3}>
-          No Hesitation Math helps students recite math facts fluetly and
-          without hesitation!
+          No Hesitation Math helps students recite
+        </Text>
+        <Text style={styles.text4}>
+          math facts fluetly and without hesitation!
         </Text>
         <View style={[styles.inputContainer, { marginBottom: 20 }]}>
           <Icon
@@ -155,6 +157,7 @@ export default class Login extends Component {
             <Text style={styles.errorText}>{this.state.errors}</Text>
           </TouchableHighlight>
         ) : null}
+        <Image style={styles.logo} source={require("./assets/logo.png")} />
       </View>
     );
   }
@@ -183,12 +186,12 @@ const styles = StyleSheet.create({
   },
   logButtonContainer: {
     height: 40,
-    marginBottom: 130,
+    marginBottom: 120,
     width: 140
   },
   regButtonContainer: {
     marginLeft: 30,
-    marginBottom: 130
+    marginBottom: 120
   },
   reg: {
     height: 57,
@@ -246,9 +249,22 @@ const styles = StyleSheet.create({
     fontFamily: "LondonBetween"
   },
   text3: {
-    fontSize: 17,
-    left: 10,
+    fontSize: 18,
+    left: -6,
     bottom: 30,
     fontFamily: "LondonBetween"
+  },
+  text4: {
+    fontSize: 18,
+    left: -7,
+    bottom: 30,
+    fontFamily: "LondonBetween"
+  },
+  logo: {
+    height: 260,
+    width: 340,
+    bottom: 55,
+    resizeMode: "contain",
+    position: "absolute"
   }
 });

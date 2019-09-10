@@ -94,7 +94,7 @@ export default class Login extends Component {
           type={"Ionicons"}
           name={"ios-arrow-round-back"}
           style={styles.icon2}
-          onPress={() => this.props.navigation.navigate("Game")}
+          onPress={() => this.props.navigation.navigate("Login")}
         />
         <View style={styles.inputContainer}>
           <Icon

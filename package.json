@@ -9,6 +9,7 @@
     "@builderx/icons": "^0.1.10",
     "@builderx/utils": "^0.1.6",
     "@expo/vector-icons": "^10.0.5",
+    "@react-native-community/async-storage": "^1.6.1",
     "antd": "^3.23.2",
     "asset": "^0.4.13",
     "cupertino": "0.0.1",

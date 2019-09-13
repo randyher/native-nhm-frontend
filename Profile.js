@@ -1,8 +1,60 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import Icon from "react-native-ionicons";
+import AsyncStorage from "@react-native-community/async-storage";
+const ACCESS_TOKEN = "access_token";
 
 export default class Profile extends Component {
+  state = {
+    username: ""
+  };
+  componentDidMount() {
+    this.getToken().then(token => {
+      fetch("http://localhost:3000/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(res => {
+          return res.json();
+        })
+        .then(data => {
+          console.log(data.user);
+          this.setState({ username: data.user.username });
+        });
+    });
+  }
+
+  async storeToken(accessToken) {
+    try {
+      await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
+      this.getToken();
+    } catch (error) {
+      console.log("f'd up");
+    }
+  }
+
+  async getToken() {
+    try {
+      const token = await AsyncStorage.getItem(ACCESS_TOKEN);
+
+      if (token !== null) {
+        console.log(token);
+        return token;
+      }
+    } catch (error) {
+      console.log("f'd up");
+    }
+  }
+
+  async removeToken() {
+    try {
+      await AsyncStorage.removeItem(ACCESS_TOKEN);
+      this.getToken();
+    } catch (error) {
+      console.log("f'd up");
+    }
+  }
   render() {
     console.log(this.props.navigation.state.params);
     const { userData, logUserOut } = this.props.navigation.state.params;
@@ -27,7 +79,7 @@ export default class Profile extends Component {
             logUserOut();
           }}
         />
-        <Text style={styles.name}>{userData.username}</Text>
+        <Text style={styles.name}>{this.state.username}</Text>
 
         <View style={styles.body}>
           <View style={styles.bodyContent}>

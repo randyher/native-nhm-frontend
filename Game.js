@@ -3,7 +3,6 @@ import {
   StyleSheet,
   View,
   Text,
-  AsyncStorage,
   TouchableHighlight,
   TouchableOpacity,
   Alert,
@@ -14,6 +13,7 @@ import { Center } from "@builderx/utils";
 import { Button, Card } from "react-native-elements";
 import Sheet from "./components/sheet";
 import { createStackNavigator, createAppContainer } from "react-navigation";
+import AsyncStorage from "@react-native-community/async-storage";
 const ACCESS_TOKEN = "access_token";
 
 export default class Game extends Component {
@@ -24,7 +24,6 @@ export default class Game extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
     fetch(`http://localhost:3000/problems`)
       .then(res => res.json())
       .then(problems => {
@@ -101,7 +100,6 @@ export default class Game extends Component {
     const numberSentences = this.state.problems.map(problem => {
       return problem.number_sentence;
     });
-    console.log(this.state);
 
     return (
       <View style={styles.container}>
@@ -113,8 +111,7 @@ export default class Game extends Component {
           style={styles.icon}
           onPress={() =>
             this.props.navigation.navigate("Profile", {
-              logUserOut: this.logUserOut,
-              userData: this.state.userData
+              logUserOut: this.logUserOut
             })
           }
         />

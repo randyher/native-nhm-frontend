@@ -112,7 +112,7 @@ class Sheet extends React.Component {
 
       i++;
     }
-    console.log(this.state);
+
     return (
       <View>
         {this.state.intructions ? null : (
@@ -131,7 +131,10 @@ class Sheet extends React.Component {
         ) : !this.state.end ? (
           <Center horizontal>
             <View style={[styles.inputContainer, { marginTop: 26 }]}>
-              <Text style={styles.filterText}> Only Addition </Text>
+              <Image
+                style={styles.onlyAddition}
+                source={require("../assets/addition.png")}
+              />
               <Switch
                 style={styles.addOnlySwitch}
                 value={this.state.addOnly}
@@ -147,7 +150,10 @@ class Sheet extends React.Component {
             </View>
 
             <View style={styles.inputContainer}>
-              <Text style={styles.filterText}> Only Subtraction </Text>
+              <Image
+                style={styles.onlyAddition}
+                source={require("../assets/subtraction.png")}
+              />
               <Switch
                 style={styles.subtractOnlySwitch}
                 value={this.state.subtractOnly}
@@ -163,7 +169,10 @@ class Sheet extends React.Component {
             </View>
 
             <View style={styles.inputContainer}>
-              <Text style={styles.filterText}> Only Doubles & Halves </Text>
+              <Image
+                style={styles.onlyAddition}
+                source={require("../assets/double+halves.png")}
+              />
               <Switch
                 style={styles.doublesAndHalfOnlySwitch}
                 value={this.state.doublesAndHalfOnly}
@@ -178,8 +187,11 @@ class Sheet extends React.Component {
               />
             </View>
 
-            <View style={styles.inputContainer}>
-              <Text style={styles.filterText}> Only Tens </Text>
+            <View style={[styles.inputContainer, { marginBottom: 15 }]}>
+              <Image
+                style={styles.onlyAddition}
+                source={require("../assets/tens.png")}
+              />
               <Switch
                 style={styles.tensOnlySwitch}
                 value={this.state.tensOnly}
@@ -271,10 +283,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
     // borderRadius: 30
   },
-  addOnlySwitch: { top: 250, left: 80 },
-  subtractOnlySwitch: { top: 250, left: 50 },
-  doublesAndHalfOnlySwitch: { top: 250, left: -5 },
-  tensOnlySwitch: { top: 250, left: 119 },
+  addOnlySwitch: { top: 250, left: -60 },
+  subtractOnlySwitch: { top: 250, left: -60 },
+  doublesAndHalfOnlySwitch: { top: 250, left: -60 },
+  tensOnlySwitch: { top: 250, left: -60 },
   inputContainer: {
     width: 250,
     height: 45,
@@ -291,8 +303,33 @@ const styles = StyleSheet.create({
     top: 250,
 
     height: 63,
-    marginBottom: 130,
+    marginBottom: 120,
     width: 188
+  },
+  onlyAddition: {
+    top: 250,
+    height: 300,
+    width: 310,
+    right: 67,
+    resizeMode: "contain"
+  },
+  onlySubtraction: {
+    height: 300,
+    width: 310,
+    right: 67,
+    resizeMode: "contain"
+  },
+  onlyDoubleHalves: {
+    height: 300,
+    width: 310,
+    right: 67,
+    resizeMode: "contain"
+  },
+  onlyTens: {
+    height: 300,
+    width: 310,
+    right: 67,
+    resizeMode: "contain"
   }
 });
 

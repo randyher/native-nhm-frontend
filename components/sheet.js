@@ -15,7 +15,6 @@ import { Button, CheckBox, Slider } from "react-native-elements";
 import Problem from "./problem";
 import Icon from "react-native-ionicons";
 import Divider from "react-native-divider";
-// import { Card } from "antd";
 
 class Sheet extends React.Component {
   state = {
@@ -43,6 +42,7 @@ class Sheet extends React.Component {
     console.log(timeRemaining);
     this.setState({ start: false, end: true });
     const inputs = Object.values(completedQuestions);
+    const strInputs = inputs.join(" / ");
     const answers = [];
     let newScore = 0;
 
@@ -64,7 +64,27 @@ class Sheet extends React.Component {
         newScore += 1;
       }
     });
+    let gameType;
+    if (this.state.addOnly) {
+      gameType = "Addition Only";
+    } else if (this.state.subtractOnly) {
+      gameType = "Subtraction Only";
+    } else if (this.state.doublesAndHalfOnly) {
+      gameType = "Doubles + Halves Only";
+    } else if (this.state.tens) {
+      gameType = "Tens Only";
+    } else {
+      gameType = "All";
+    }
 
+    gameData = {
+      score: newScore,
+      time_remaining: timeRemaining,
+      game_type: gameType,
+      number_sentences: strInputs
+    };
+
+    this.props.addGame(gameData);
     this.setState({ score: newScore, timeRemaining: timeRemaining });
   };
 

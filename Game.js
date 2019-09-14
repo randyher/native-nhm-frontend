@@ -73,6 +73,10 @@ export default class Game extends Component {
     }
   }
 
+  addGame = gameData => {
+    console.log(gameData);
+  };
+
   logUserOut = () => {
     Alert.alert(
       "Logging Out",
@@ -130,6 +134,7 @@ export default class Game extends Component {
         <Sheet
           problems={this.state.problems}
           removeClickables={this.removeClickables}
+          addGame={this.addGame}
         />
       </View>
     );

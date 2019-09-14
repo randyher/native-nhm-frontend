@@ -34,13 +34,6 @@ export default class Game extends Component {
       });
   }
 
-  logUserIn = username => {
-    console.log(username);
-    this.setState({ currentUser: username }, () => {
-      this.props.navigation.navigate("Game");
-    });
-  };
-
   removeClickables = () => {
     this.setState({ clicksRemoved: !this.state.clicksRemoved });
   };
@@ -74,7 +67,24 @@ export default class Game extends Component {
   }
 
   addGame = gameData => {
-    console.log(gameData);
+    const gameDataWithUser = {
+      ...gameData,
+      user_id: this.state.userData.id
+    };
+    console.log(gameDataWithUser);
+    this.getToken().then(token => {
+      fetch("http://localhost:3000/games", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(gameDataWithUser)
+      })
+        .then(res => res.json())
+        .then(console.log);
+    });
   };
 
   logUserOut = () => {
@@ -101,6 +111,7 @@ export default class Game extends Component {
   };
 
   render() {
+    console.log(this.state);
     const numberSentences = this.state.problems.map(problem => {
       return problem.number_sentence;
     });
@@ -109,16 +120,18 @@ export default class Game extends Component {
       <View style={styles.container}>
         <View style={styles.rect} />
         <Text style={styles.text2} />
-        <Icon
-          type={"Ionicons"}
-          name={"ios-person"}
-          style={styles.icon}
-          onPress={() =>
-            this.props.navigation.navigate("Profile", {
-              logUserOut: this.logUserOut
-            })
-          }
-        />
+        {this.state.clicksRemoved ? null : (
+          <Icon
+            type={"Ionicons"}
+            name={"ios-person"}
+            style={styles.icon}
+            onPress={() =>
+              this.props.navigation.navigate("Profile", {
+                logUserOut: this.logUserOut
+              })
+            }
+          />
+        )}
         <Icon type={"Ionicons"} name={"ios-menu"} style={styles.icon2} />
         <Center horizontal>
           <Image

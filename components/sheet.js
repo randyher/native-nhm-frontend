@@ -71,7 +71,7 @@ class Sheet extends React.Component {
       gameType = "Subtraction Only";
     } else if (this.state.doublesAndHalfOnly) {
       gameType = "Doubles + Halves Only";
-    } else if (this.state.tens) {
+    } else if (this.state.tensOnly) {
       gameType = "Tens Only";
     } else {
       gameType = "All";

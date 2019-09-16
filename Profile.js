@@ -1,12 +1,22 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView
+} from "react-native";
 import Icon from "react-native-ionicons";
 import AsyncStorage from "@react-native-community/async-storage";
+import { Center } from "@builderx/utils";
 const ACCESS_TOKEN = "access_token";
+import PastGames from "./components/pastGames";
 
 export default class Profile extends Component {
   state = {
-    username: ""
+    username: "",
+    pastGames: []
   };
   componentDidMount() {
     this.getToken().then(token => {
@@ -19,8 +29,10 @@ export default class Profile extends Component {
           return res.json();
         })
         .then(data => {
-          console.log(data.user);
-          this.setState({ username: data.user.username });
+          this.setState({
+            username: data.user.username,
+            pastGames: data.games.reverse()
+          });
         });
     });
   }
@@ -58,7 +70,9 @@ export default class Profile extends Component {
   render() {
     console.log(this.props.navigation.state.params);
     const { userData, logUserOut } = this.props.navigation.state.params;
-
+    const pastGames = this.state.pastGames.map(game => {
+      return <PastGames game={game} key={game.id} />;
+    });
     return (
       <View style={styles.container}>
         <View style={styles.rect} />
@@ -79,20 +93,15 @@ export default class Profile extends Component {
             logUserOut();
           }}
         />
+        <Center horizontal>
+          <Image
+            style={styles.headerText}
+            source={require("./assets/header.png")}
+          />
+        </Center>
         <Text style={styles.name}>{this.state.username}</Text>
-
-        <View style={styles.body}>
-          <View style={styles.bodyContent}>
-            <Text style={styles.info}>Select Below: </Text>
-
-            <TouchableOpacity style={styles.buttonContainer}>
-              <Text> Previous Games </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.buttonContainer}>
-              <Text> Stats </Text>
-            </TouchableOpacity>
-          </View>
+        <View style={styles.bodyContent}>
+          <ScrollView horizontal={true}>{pastGames}</ScrollView>
         </View>
       </View>
     );
@@ -104,19 +113,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F0F8FF"
+    backgroundColor: "white"
   },
-  header: {
-    backgroundColor: "#00BFFF",
-    height: 200
+  headerText: {
+    height: 36,
+    top: 95,
+    position: "absolute",
+    resizeMode: "contain",
+    aspectRatio: 1.5
   },
-
-  text2: {
-    top: 259.64,
+  rect: {
+    top: 0,
     left: 0,
-    width: 0,
-    height: 0,
-    color: "#121212",
+    width: 375,
+    height: 138.08,
+    backgroundColor: "#c4df9b",
     position: "absolute"
   },
   icon: {
@@ -133,52 +144,36 @@ const styles = StyleSheet.create({
     fontSize: 40,
     left: "4.55%"
   },
-  avatar: {
-    width: 130,
-    height: 130,
-    borderRadius: 63,
-    borderWidth: 4,
-    borderColor: "white",
-    marginBottom: 10,
-    alignSelf: "center",
-    position: "absolute",
-    marginTop: 130
-  },
+
   name: {
-    top: 20,
+    top: 130,
     fontSize: 45,
-    color: "blue",
+    color: "#c4df9b",
     fontWeight: "600",
     fontFamily: "Chalkduster"
   },
-  body: {
-    marginTop: 10
-  },
+
   bodyContent: {
     flex: 1,
-    alignItems: "center",
-    padding: 30
+    marginTop: 145,
+    alignItems: "center"
   },
 
   info: {
     fontSize: 16,
     color: "#00BFFF",
+    top: 160,
     marginBottom: 20
   },
-  description: {
-    fontSize: 16,
-    color: "#696969",
-    marginTop: 10,
-    textAlign: "center"
+  buttons: {
+    top: 165
   },
   buttonContainer: {
     marginTop: 5,
     height: 45,
-    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 10,
-    width: 250,
+    width: 150,
     borderRadius: 30,
     backgroundColor: "#00BFFF"
   }

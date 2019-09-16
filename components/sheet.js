@@ -20,6 +20,7 @@ class Sheet extends React.Component {
   state = {
     score: 0,
     timeRemaining: 0,
+    gameType: "",
     start: false,
     end: false,
     addOnly: false,
@@ -85,7 +86,11 @@ class Sheet extends React.Component {
     };
 
     this.props.addGame(gameData);
-    this.setState({ score: newScore, timeRemaining: timeRemaining });
+    this.setState({
+      score: newScore,
+      timeRemaining: timeRemaining,
+      gameType: gameType
+    });
   };
 
   render() {
@@ -244,6 +249,8 @@ class Sheet extends React.Component {
               Questions Correct: {this.state.score} / 24
               {"\n"}
               Time Remaining: {this.state.timeRemaining}
+              {"\n"}
+              Question Filter: {this.state.gameType}
             </Text>
           ) : null}
         </Center>
@@ -264,21 +271,24 @@ const styles = StyleSheet.create({
   },
   text2: {
     top: 210,
+    marginTop: 5,
     color: "#121212",
     left: 15,
-    fontSize: 18
+    fontSize: 20,
+    fontFamily: "LondonBetween"
   },
   text3: {
     top: 210,
     color: "#121212",
     left: 15,
-    fontSize: 18
+    fontSize: 20,
+    fontFamily: "LondonBetween"
   },
   text4: {
     top: 245,
     color: "#121212",
     position: "absolute",
-    fontSize: 25
+    fontSize: 20
   },
   card1: {
     top: 296.85,
@@ -292,17 +302,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 25
   },
-  filterText: {
-    height: 40,
-    fontSize: 25,
-    // justifyContent: "center",
-    // alignItems: "center",
-    top: 250,
-    right: 55,
-    fontFamily: "LondonBetween",
-    fontWeight: "bold"
-    // borderRadius: 30
-  },
+
   addOnlySwitch: { top: 250, left: -60 },
   subtractOnlySwitch: { top: 250, left: -60 },
   doublesAndHalfOnlySwitch: { top: 250, left: -60 },

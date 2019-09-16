@@ -38,6 +38,21 @@ class Sheet extends React.Component {
     });
   };
 
+  resetScreen = () => {
+    this.setState({
+      score: 0,
+      timeRemaining: 0,
+      gameType: "",
+      start: false,
+      end: false,
+      addOnly: false,
+      subtractOnly: false,
+      doublesAndHalfOnly: false,
+      tensOnly: false,
+      intructions: false
+    });
+  };
+
   endGame = (completedQuestions, timeRemaining) => {
     console.log(completedQuestions);
     console.log(timeRemaining);
@@ -86,6 +101,7 @@ class Sheet extends React.Component {
     };
 
     this.props.addGame(gameData);
+    this.props.removeClickables();
     this.setState({
       score: newScore,
       timeRemaining: timeRemaining,
@@ -245,13 +261,20 @@ class Sheet extends React.Component {
         ) : null}
         <Center>
           {this.state.end ? (
-            <Text style={styles.text4}>
-              Questions Correct: {this.state.score} / 24
-              {"\n"}
-              Time Remaining: {this.state.timeRemaining}
-              {"\n"}
-              Question Filter: {this.state.gameType}
-            </Text>
+            <Center horizontal>
+              <Text style={styles.text4}>
+                Questions Correct: {this.state.score} / 24
+                {"\n"}
+                Time Remaining: {this.state.timeRemaining}
+                {"\n"}
+                Question Filter: {this.state.gameType}
+              </Text>
+              <Button
+                style={styles.button}
+                title="Go Again!"
+                onPress={this.resetScreen}
+              />
+            </Center>
           ) : null}
         </Center>
       </View>
@@ -261,13 +284,11 @@ class Sheet extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    height: 50,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 300,
-    width: 250,
-    borderRadius: 30
+    top: 350.06,
+    width: 145.81,
+    height: 75.94,
+    right: 2,
+    position: "absolute"
   },
   text2: {
     top: 210,

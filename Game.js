@@ -42,6 +42,10 @@ export default class Game extends Component {
     });
   };
 
+  removeReset = () => {
+    this.setState({ resultsText: false });
+  };
+
   async storeToken(accessToken) {
     try {
       await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
@@ -155,6 +159,7 @@ export default class Game extends Component {
           problems={this.state.problems}
           removeClickables={this.removeClickables}
           addGame={this.addGame}
+          removeReset={this.removeReset}
         />
       </View>
     );

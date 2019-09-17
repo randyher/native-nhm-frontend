@@ -39,6 +39,7 @@ class Sheet extends React.Component {
   };
 
   resetScreen = () => {
+    this.props.removeReset();
     this.setState({
       score: 0,
       timeRemaining: 0,

@@ -12,11 +12,14 @@ import AsyncStorage from "@react-native-community/async-storage";
 import { Center } from "@builderx/utils";
 const ACCESS_TOKEN = "access_token";
 import PastGames from "./components/pastGames";
+import PastNumberSentences from "./components/pastNumberSentences";
 
 export default class Profile extends Component {
   state = {
     username: "",
-    pastGames: []
+    pastGames: [],
+    showNS: false,
+    clickedGame: {}
   };
   componentDidMount() {
     this.getToken().then(token => {
@@ -67,11 +70,21 @@ export default class Profile extends Component {
       console.log("f'd up");
     }
   }
+
+  showNumberSentences = game => {
+    this.setState({ showNS: true, clickedGame: game });
+  };
+
   render() {
-    console.log(this.props.navigation.state.params);
     const { userData, logUserOut } = this.props.navigation.state.params;
     const pastGames = this.state.pastGames.map(game => {
-      return <PastGames game={game} key={game.id} />;
+      return (
+        <PastGames
+          game={game}
+          key={game.id}
+          clickHandler={this.showNumberSentences}
+        />
+      );
     });
     return (
       <View style={styles.container}>
@@ -101,7 +114,12 @@ export default class Profile extends Component {
         </Center>
         <Text style={styles.name}>{this.state.username}</Text>
         <View style={styles.bodyContent}>
-          <ScrollView horizontal={true}>{pastGames}</ScrollView>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            {pastGames}
+          </ScrollView>
+          {this.state.showNS ? (
+            <PastNumberSentences game={this.state.clickedGame} />
+          ) : null}
         </View>
       </View>
     );
@@ -134,13 +152,13 @@ const styles = StyleSheet.create({
     top: 44.04,
     left: 324.49,
     position: "absolute",
-    color: "grey",
+    color: "black",
     fontSize: 40
   },
   icon2: {
     top: 44.04,
     position: "absolute",
-    color: "grey",
+    color: "black",
     fontSize: 40,
     left: "4.55%"
   },

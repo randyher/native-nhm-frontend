@@ -12,10 +12,12 @@ export default class Profile extends Component {
 
   render() {
     let time = new Date(this.props.game.updated_at.split(" "));
-    console.log(time);
 
     return (
-      <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => this.props.clickHandler(this.props.game)}
+      >
         <Text style={[styles.text, { marginTop: 15 }]}>
           Questions Correct: {this.props.game.score}
         </Text>
@@ -23,7 +25,7 @@ export default class Profile extends Component {
           Time Remaining: {this.props.game.time_remaining}
         </Text>
         <Text style={styles.text}>{this.props.game.game_type}</Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

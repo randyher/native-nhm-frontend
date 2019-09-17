@@ -1,19 +1,53 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView
+} from "react-native";
 import Icon from "react-native-ionicons";
 import AsyncStorage from "@react-native-community/async-storage";
 import { Center } from "@builderx/utils";
 const ACCESS_TOKEN = "access_token";
 
 export default class pastNumberSentences extends Component {
-  state = {
-    username: ""
-  };
-
   render() {
+    const nsLI = this.props.game.number_sentences
+      .split(" / ")
+      .map((numberSentence, index) => {
+        const numbers = numberSentence.split(/[\s=]+/);
+        let correct = false;
+        if (
+          parseInt(numbers[0]) + parseInt(numbers[2]) ===
+            parseInt(numbers[3]) &&
+          numbers[1] === "+"
+        ) {
+          correct = true;
+        }
+
+        if (
+          parseInt(numbers[0]) - parseInt(numbers[2]) ===
+            parseInt(numbers[3]) &&
+          numbers[1] === "-"
+        ) {
+          correct = true;
+        }
+        return (
+          <Text style={styles.text} key={index}>
+            {numberSentence + "  "}
+            <Icon
+              style={correct ? { color: "green" } : { color: "red" }}
+              type={"Ionicons"}
+              name={correct ? "ios-checkmark" : "ios-close"}
+            />
+          </Text>
+        );
+      });
     return (
       <View style={styles.container}>
-        Questions Correct: {this.props.game.score}
+        <ScrollView>{nsLI}</ScrollView>
       </View>
     );
   }
@@ -21,12 +55,12 @@ export default class pastNumberSentences extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 80,
-    width: 160,
-    marginLeft: 20,
-    borderWidth: 0.5,
+    height: 250,
+    width: 300,
+
+    bottom: 200,
     borderColor: "#dddddd",
     backgroundColor: "#b3dcff"
   },
-  text: { fontSize: 12, textAlign: "center", color: "white" }
+  text: { fontSize: 20, textAlign: "center", color: "white" }
 });

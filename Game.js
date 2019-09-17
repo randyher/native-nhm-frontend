@@ -20,11 +20,12 @@ export default class Game extends Component {
   state = {
     userData: {},
     problems: [],
-    clicksRemoved: false
+    clicksRemoved: false,
+    resultsText: false
   };
 
   componentDidMount() {
-    fetch(`http://localhost:3000/problems`)
+    fetch(`https://native-nhm-api.herokuapp.com/problems`)
       .then(res => res.json())
       .then(problems => {
         this.setState({
@@ -35,7 +36,10 @@ export default class Game extends Component {
   }
 
   removeClickables = () => {
-    this.setState({ clicksRemoved: !this.state.clicksRemoved });
+    this.setState({
+      clicksRemoved: !this.state.clicksRemoved,
+      resultsText: true
+    });
   };
 
   async storeToken(accessToken) {
@@ -73,7 +77,7 @@ export default class Game extends Component {
     };
     console.log(gameDataWithUser);
     this.getToken().then(token => {
-      fetch("http://localhost:3000/games", {
+      fetch("https://native-nhm-api.herokuapp.com/games", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -139,10 +143,13 @@ export default class Game extends Component {
             source={require("./assets/header.png")}
           />
         </Center>
-        {!this.state.clicksRemoved ? (
+        {!this.state.clicksRemoved && !this.state.resultsText ? (
           <Text style={styles.text2}>
             Welcome {this.state.userData.username}!
           </Text>
+        ) : null}
+        {!this.state.clicksRemoved && this.state.resultsText ? (
+          <Text style={styles.text2}>Results:</Text>
         ) : null}
         <Sheet
           problems={this.state.problems}

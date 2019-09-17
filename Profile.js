@@ -23,7 +23,7 @@ export default class Profile extends Component {
   };
   componentDidMount() {
     this.getToken().then(token => {
-      fetch("http://localhost:3000/profile", {
+      fetch("https://native-nhm-api.herokuapp.com/profile", {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -112,7 +112,7 @@ export default class Profile extends Component {
             source={require("./assets/header.png")}
           />
         </Center>
-        <Text style={styles.name}>{this.state.username}</Text>
+        <Text style={styles.name}>Previous Games</Text>
         <View style={styles.bodyContent}>
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             {pastGames}
@@ -164,16 +164,16 @@ const styles = StyleSheet.create({
   },
 
   name: {
-    top: 130,
+    top: 140,
     fontSize: 45,
     color: "#c4df9b",
     fontWeight: "600",
-    fontFamily: "Chalkduster"
+    fontFamily: "LondonBetween"
   },
 
   bodyContent: {
     flex: 1,
-    marginTop: 145,
+    marginTop: 150,
     alignItems: "center"
   },
 

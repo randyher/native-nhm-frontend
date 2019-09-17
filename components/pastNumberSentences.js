@@ -55,10 +55,10 @@ export default class pastNumberSentences extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 250,
+    height: 290,
     width: 300,
 
-    bottom: 200,
+    bottom: 180,
     borderColor: "#dddddd",
     backgroundColor: "#b3dcff"
   },

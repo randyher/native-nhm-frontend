@@ -7,7 +7,7 @@ import CountdownCircle from "react-native-countdown-circle";
 
 class Problem extends React.Component {
   state = {
-    timer: 60,
+    timer: 5,
     questionCount: 0,
     completedQuestions: {},
     currentAnswer: ""

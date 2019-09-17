@@ -33,7 +33,7 @@ export default class Profile extends Component {
 const styles = StyleSheet.create({
   container: {
     height: 80,
-    width: 160,
+    width: 150,
     marginLeft: 20,
     borderWidth: 0.5,
     borderColor: "#dddddd",

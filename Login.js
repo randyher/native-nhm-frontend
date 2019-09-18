@@ -105,7 +105,7 @@ export default class Login extends Component {
           No Hesitation Math helps students recite
         </Text>
         <Text style={styles.text4}>
-          math facts fluetly and without hesitation!
+          math facts fluently and without hesitation!
         </Text>
         <View style={[styles.inputContainer, { marginBottom: 20 }]}>
           <Icon

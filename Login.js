@@ -14,6 +14,10 @@ import {
 import FormTextInput from "./components/formTextInput.js";
 import Icon from "react-native-ionicons";
 import AsyncStorage from "@react-native-community/async-storage";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp
+} from "react-native-responsive-screen";
 
 const ACCESS_TOKEN = "access_token";
 
@@ -172,14 +176,14 @@ const styles = StyleSheet.create({
   rect: {
     top: 0,
     left: 0,
-    width: 375,
-    height: 138.08,
+    width: 400,
+    height: hp("17"),
     backgroundColor: "#c4df9b",
     position: "absolute"
   },
   headerText: {
-    height: 36,
-    top: 95,
+    height: hp(4.7),
+    top: hp("12"),
     position: "absolute",
     resizeMode: "contain",
     aspectRatio: 1.5
@@ -194,12 +198,12 @@ const styles = StyleSheet.create({
     marginBottom: 120
   },
   reg: {
-    height: 57,
+    height: hp("7"),
     width: 200,
     resizeMode: "contain"
   },
   log: {
-    height: 55,
+    height: hp("7"),
     width: 200,
     resizeMode: "contain"
   },
@@ -209,7 +213,7 @@ const styles = StyleSheet.create({
     // borderRadius: 30,
     borderBottomWidth: 1,
     width: 325,
-    height: 40,
+    height: hp("4.5%"),
     marginBottom: 20,
     flexDirection: "row",
     alignItems: "center",
@@ -217,7 +221,6 @@ const styles = StyleSheet.create({
   },
   inputs: {
     color: "#b3dcff",
-    height: 45,
     marginLeft: 16,
     borderBottomColor: "#FFFFFF",
     color: "black",
@@ -242,10 +245,10 @@ const styles = StyleSheet.create({
     left: "4.55%"
   },
   text2: {
-    fontSize: 30,
+    fontSize: hp("3.8"),
     bottom: 45,
     // marginBottom: 80,
-    right: 10,
+    right: hp("1"),
     fontFamily: "LondonBetween"
   },
   text3: {
@@ -261,9 +264,9 @@ const styles = StyleSheet.create({
     fontFamily: "LondonBetween"
   },
   logo: {
-    height: 260,
-    width: 340,
-    bottom: 55,
+    height: hp("33%"),
+    width: wp("100"),
+    bottom: 45,
     resizeMode: "contain",
     position: "absolute"
   }

@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     // borderRadius: 30,
     borderBottomWidth: 1,
-    width: 325,
+    width: wp("88"),
     height: hp("4.5%"),
     marginBottom: 20,
     flexDirection: "row",

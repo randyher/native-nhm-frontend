@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
   rect: {
     top: 0,
     left: 0,
-    width: 400,
+    width: 500,
     height: hp("17"),
     backgroundColor: "#c4df9b",
     position: "absolute"
@@ -245,22 +245,22 @@ const styles = StyleSheet.create({
     left: "4.55%"
   },
   text2: {
-    fontSize: hp("3.8"),
-    bottom: 45,
+    fontSize: hp("3.9"),
+    bottom: hp("8"),
     // marginBottom: 80,
     right: hp("1"),
     fontFamily: "LondonBetween"
   },
   text3: {
-    fontSize: 18,
-    left: -6,
-    bottom: 30,
+    fontSize: hp("2.2"),
+    bottom: hp("6.5"),
+    right: hp("1.3"),
     fontFamily: "LondonBetween"
   },
   text4: {
-    fontSize: 18,
-    left: -7,
-    bottom: 30,
+    fontSize: hp("2.2"),
+    bottom: hp("6.5"),
+    right: hp("1.2"),
     fontFamily: "LondonBetween"
   },
   logo: {

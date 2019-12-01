@@ -143,14 +143,14 @@ const styles = StyleSheet.create({
   rect: {
     top: 0,
     left: 0,
-    width: 375,
+    width: 500,
     height: 138.08,
     backgroundColor: "#c4df9b",
     position: "absolute"
   },
   icon: {
     top: 44.04,
-    left: 324.49,
+    left: 370.49,
     position: "absolute",
     color: "black",
     fontSize: 40

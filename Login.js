@@ -106,12 +106,11 @@ export default class Login extends Component {
         />
         <Text style={styles.text2}> Practice your math facts!</Text>
         <Text style={styles.text3}>
-          No Hesitation Math helps students recite
+          No Hesitation Math helps
+          {"\n"}students recite math facts fluently
+          {"\n"}and without hesitation
         </Text>
-        <Text style={styles.text4}>
-          math facts fluently and without hesitation!
-        </Text>
-        <View style={[styles.inputContainer, { marginBottom: 20 }]}>
+        <View style={[styles.inputContainer, { marginBottom: 18 }]}>
           <Icon
             style={styles.inputIcon}
             type={"Ionicons"}
@@ -188,22 +187,22 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     aspectRatio: 1.5
   },
+  regButtonContainer: {
+    marginLeft: hp("7"),
+    marginBottom: 120
+  },
   logButtonContainer: {
     height: 40,
     marginBottom: 120,
     width: 140
   },
-  regButtonContainer: {
-    marginLeft: 30,
-    marginBottom: 120
-  },
   reg: {
-    height: hp("7"),
+    height: hp("6.5"),
     width: 200,
     resizeMode: "contain"
   },
   log: {
-    height: hp("7"),
+    height: hp("6.5"),
     width: 200,
     resizeMode: "contain"
   },
@@ -246,26 +245,21 @@ const styles = StyleSheet.create({
   },
   text2: {
     fontSize: hp("3.9"),
-    bottom: hp("8"),
+    bottom: hp("5"),
     // marginBottom: 80,
     right: hp("1"),
     fontFamily: "LondonBetween"
   },
   text3: {
-    fontSize: hp("2.2"),
-    bottom: hp("6.5"),
-    right: hp("1.3"),
-    fontFamily: "LondonBetween"
-  },
-  text4: {
-    fontSize: hp("2.2"),
-    bottom: hp("6.5"),
-    right: hp("1.2"),
+    fontSize: hp("2.3"),
+    bottom: hp("3.5"),
+    right: hp("3.5"),
     fontFamily: "LondonBetween"
   },
   logo: {
-    height: hp("33%"),
+    height: hp("34.5"),
     width: wp("100"),
+    marginTop: 100,
     bottom: 45,
     resizeMode: "contain",
     position: "absolute"

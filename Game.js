@@ -15,6 +15,10 @@ import Sheet from "./components/sheet";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import AsyncStorage from "@react-native-community/async-storage";
 const ACCESS_TOKEN = "access_token";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp
+} from "react-native-responsive-screen";
 
 export default class Game extends Component {
   state = {
@@ -172,8 +176,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white"
   },
   headerText: {
-    height: 36,
-    top: 95,
+    height: hp(4.7),
+    top: hp("12"),
     position: "absolute",
     resizeMode: "contain",
     aspectRatio: 1.5
@@ -181,8 +185,8 @@ const styles = StyleSheet.create({
   rect: {
     top: 0,
     left: 0,
-    width: 375,
-    height: 138.08,
+    width: 500,
+    height: hp("17"),
     backgroundColor: "#c4df9b",
     position: "absolute"
   },
@@ -196,7 +200,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     top: 44.04,
-    left: 324.49,
+    left: 370.49,
     position: "absolute",
     color: "black",
     fontSize: 40

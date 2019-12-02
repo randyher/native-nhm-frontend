@@ -122,6 +122,7 @@ export default class Login extends Component {
             placeholder="Username"
             underlineColorAndroid="transparent"
             onChangeText={username => this.setState({ username })}
+            placeholderTextColor="gray"
           />
         </View>
 
@@ -133,6 +134,7 @@ export default class Login extends Component {
             secureTextEntry={true}
             underlineColorAndroid="transparent"
             onChangeText={password => this.setState({ password })}
+            placeholderTextColor="gray"
           />
         </View>
 

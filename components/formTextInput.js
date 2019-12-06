@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, View, Text, TextInput, Keyboard } from "react-native";
-import { Center } from "@builderx/utils";
 
 class FormTextInput extends React.Component {
   render() {

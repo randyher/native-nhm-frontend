@@ -12,7 +12,6 @@ import {
   Alert,
   AsyncStorage
 } from "react-native";
-import FormTextInput from "./components/formTextInput.js";
 import Icon from "react-native-ionicons";
 
 const ACCESS_TOKEN = "access_token";

@@ -5,11 +5,9 @@ import {
   Text,
   View,
   TextInput,
-  Button,
   TouchableHighlight,
   TouchableOpacity,
-  Image,
-  Alert
+  Image
 } from "react-native";
 import Icon from "react-native-ionicons";
 import AsyncStorage from "@react-native-community/async-storage";

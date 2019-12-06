@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import { Center } from "@builderx/utils";
 import {
   StyleSheet,
   Text,
   View,
   TextInput,
-  Button,
   TouchableHighlight,
   TouchableOpacity,
-  Image,
-  Alert,
   AsyncStorage
 } from "react-native";
 import Icon from "react-native-ionicons";

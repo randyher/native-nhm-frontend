@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, View, Text, TextInput, Keyboard } from "react-native";
 import { Center } from "@builderx/utils";
 import { Button } from "react-native-elements";
-import Icon from "react-native-ionicons";
 import CountdownCircle from "react-native-countdown-circle";
 
 class Problem extends React.Component {

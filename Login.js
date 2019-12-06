@@ -11,7 +11,6 @@ import {
   Image,
   Alert
 } from "react-native";
-import FormTextInput from "./components/formTextInput.js";
 import Icon from "react-native-ionicons";
 import AsyncStorage from "@react-native-community/async-storage";
 import {

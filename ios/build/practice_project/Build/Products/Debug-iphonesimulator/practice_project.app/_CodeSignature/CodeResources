@@ -6,11 +6,11 @@
 	<dict>
 		<key>Base.lproj/LaunchScreen.nib/objects-13.0+.nib</key>
 		<data>
-		eSlgZyS3iU8R8fUqM1lnKxhyB4I=
+		OVZJ5nj3stXsWv28D9TqLezidMc=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<data>
-		PJu+rFtn6UmLRpKUXvvfTyV1+gA=
+		ntrfHorwBiRHimRDqTsm20RIly8=
 		</data>
 		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
 		<data>
@@ -63,7 +63,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Ky70gCt0WkH5TcP0KKltyBg3ZDk=
+		NeQHFHhYPGSinvq5yRMrbHAxisU=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
@@ -87,7 +87,7 @@
 		</data>
 		<key>PlugIns/practice_projectTests.xctest.dSYM/Contents/Resources/DWARF/practice_projectTests</key>
 		<data>
-		SGxgld+lMjZ0XadRMK/sCjy/Lws=
+		EAnpxagQLoiyv1m3mBivFo3j1bo=
 		</data>
 		<key>PlugIns/practice_projectTests.xctest/Info.plist</key>
 		<data>
@@ -99,7 +99,7 @@
 		</data>
 		<key>PlugIns/practice_projectTests.xctest/practice_projectTests</key>
 		<data>
-		/GMC5JuL2FhTQIvxHZMEgJ+9vyg=
+		Vkcs+GfVVrYDqIid0iJxozu4/Ls=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -108,22 +108,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eSlgZyS3iU8R8fUqM1lnKxhyB4I=
+			OVZJ5nj3stXsWv28D9TqLezidMc=
 			</data>
 			<key>hash2</key>
 			<data>
-			H0Xp6aYjJyAUJKbS3eDP2+094ufgBTuwfkSxzzH2opE=
+			FlImS16zHOdMQanua6TKuXbgj+UcrglYZaJ1byObpes=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PJu+rFtn6UmLRpKUXvvfTyV1+gA=
+			ntrfHorwBiRHimRDqTsm20RIly8=
 			</data>
 			<key>hash2</key>
 			<data>
-			lKldB5aILnvHAUMEuer/LT/ICj1EsMfSg6WEq75c8pM=
+			PyVWAudcZErLh4bCSWD9HwzVOm+uq3lcovPPE/7zvZY=
 			</data>
 		</dict>
 		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
@@ -297,11 +297,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SGxgld+lMjZ0XadRMK/sCjy/Lws=
+			EAnpxagQLoiyv1m3mBivFo3j1bo=
 			</data>
 			<key>hash2</key>
 			<data>
-			sU81N/ed8SCMniUP594NTm3c+3kb/4WD22YFsl5fG0Y=
+			jnXSrQpRwryn3HgcHMk9DZTsDn4MP9R++W+X9i6w+YM=
 			</data>
 		</dict>
 		<key>PlugIns/practice_projectTests.xctest/Info.plist</key>
@@ -330,11 +330,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/GMC5JuL2FhTQIvxHZMEgJ+9vyg=
+			Vkcs+GfVVrYDqIid0iJxozu4/Ls=
 			</data>
 			<key>hash2</key>
 			<data>
-			RExmmCD5vUKmILFX+mXJSl+plkhACI7VKyDUHVNpUgU=
+			GtMAbC9WebKjp+mSl+asz8EnPN2rj17XcQzvRKz+pj4=
 			</data>
 		</dict>
 	</dict>

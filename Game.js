@@ -115,9 +115,6 @@ export default class Game extends Component {
 
   render() {
     console.log(this.state);
-    const numberSentences = this.state.problems.map(problem => {
-      return problem.number_sentence;
-    });
 
     return (
       <View style={styles.container}>

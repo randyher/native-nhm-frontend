@@ -13,8 +13,6 @@ import {
 import { Center } from "@builderx/utils";
 import { Button, CheckBox, Slider } from "react-native-elements";
 import Problem from "./problem";
-import Icon from "react-native-ionicons";
-import Divider from "react-native-divider";
 
 class Sheet extends React.Component {
   state = {

@@ -11,8 +11,6 @@ export default class Profile extends Component {
   };
 
   render() {
-    let time = new Date(this.props.game.updated_at.split(" "));
-
     return (
       <TouchableOpacity
         style={styles.container}

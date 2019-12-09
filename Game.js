@@ -1,18 +1,9 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableHighlight,
-  TouchableOpacity,
-  Alert,
-  Image
-} from "react-native";
+import { StyleSheet, View, Text, Alert, Image } from "react-native";
 import Icon from "react-native-ionicons";
 import { Center } from "@builderx/utils";
 import { Button, Card } from "react-native-elements";
 import Sheet from "./components/sheet";
-import { createStackNavigator, createAppContainer } from "react-navigation";
 import AsyncStorage from "@react-native-community/async-storage";
 const ACCESS_TOKEN = "access_token";
 import {

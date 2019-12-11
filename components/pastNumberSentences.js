@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import Icon from "react-native-ionicons";
-import AsyncStorage from "@react-native-community/async-storage";
+
 import { Center } from "@builderx/utils";
 const ACCESS_TOKEN = "access_token";
 

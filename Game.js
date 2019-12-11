@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { StyleSheet, View, Text, Alert, Image } from "react-native";
 import Icon from "react-native-ionicons";
 import { Center } from "@builderx/utils";
-import { Button, Card } from "react-native-elements";
 import Sheet from "./components/sheet";
 import AsyncStorage from "@react-native-community/async-storage";
 const ACCESS_TOKEN = "access_token";
@@ -75,6 +74,7 @@ export default class Game extends Component {
       user_id: this.state.userData.id
     };
     console.log(gameDataWithUser);
+
     this.getToken().then(token => {
       fetch("https://native-nhm-api.herokuapp.com/games", {
         method: "POST",

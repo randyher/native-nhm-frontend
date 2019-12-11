@@ -38,6 +38,40 @@
 			<key>uniqueIdentifier</key>
 			<string>4025A10D-1600-459E-930C-135451DB8D1A</string>
 		</dict>
+		<key>DFB79B2D-022D-40B9-AD5F-23CDA57955A9</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>DFB79B2D-022D-40B9-AD5F-23CDA57955A9.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>practice_project project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>practice_project</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project practice_project with scheme practice_project and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>597606500.12372398</real>
+			<key>timeStoppedRecording</key>
+			<real>597606501.80022001</real>
+			<key>title</key>
+			<string>Building project practice_project with scheme practice_project and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>DFB79B2D-022D-40B9-AD5F-23CDA57955A9</string>
+		</dict>
 	</dict>
 </dict>
 </plist>

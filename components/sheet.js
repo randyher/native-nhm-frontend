@@ -3,11 +3,8 @@ import {
   StyleSheet,
   View,
   Text,
-  TextInput,
-  Keyboard,
   TouchableOpacity,
   Switch,
-  Card,
   Image
 } from "react-native";
 import { Center } from "@builderx/utils";

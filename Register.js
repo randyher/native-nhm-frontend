@@ -12,7 +12,7 @@ import Icon from "react-native-ionicons";
 
 const ACCESS_TOKEN = "access_token";
 
-export default class Login extends Component {
+export default class Register extends Component {
   state = {
     username: "",
     password: "",

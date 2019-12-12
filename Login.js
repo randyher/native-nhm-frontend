@@ -153,7 +153,7 @@ export default class Login extends Component {
             />
           </TouchableOpacity>
         </View>
-
+        <Text style={styles.errorText}>YO!</Text>
         {this.state.errors ? (
           <TouchableHighlight style={styles.buttonContainer}>
             <Text style={styles.errorText}>{this.state.errors}</Text>
@@ -233,7 +233,9 @@ const styles = StyleSheet.create({
   },
 
   errorText: {
-    color: "red"
+    color: "red",
+    bottom: 118,
+    backgroundColor: "red"
   },
   icon2: {
     top: 44.04,
